@@ -16,10 +16,12 @@ const SITE = {
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- Fill name, email and mailto links from SITE ---------- */
-  const mailto = `mailto:${SITE.email}?subject=${encodeURIComponent(SITE.emailSubject)}`;
   document.querySelectorAll('[data-site="name"]').forEach((el) => { el.textContent = SITE.name; });
   document.querySelectorAll('[data-site="email"]').forEach((el) => { el.textContent = SITE.email; });
-  document.querySelectorAll('[data-mailto]').forEach((el) => { el.setAttribute('href', mailto); });
+  document.querySelectorAll('[data-mailto]').forEach((el) => {
+    const subject = el.dataset.subject || SITE.emailSubject;
+    el.setAttribute('href', `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`);
+  });
   document.querySelectorAll('[data-site-label]').forEach((el) => { el.setAttribute('aria-label', `${SITE.name}, back to top`); });
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
@@ -99,29 +101,66 @@ const SITE = {
   const COLORS = ['34,211,238', '167,139,250', '244,114,182'];
   let hue = 0;
 
-  const addPoint = (x, y) => {
+  // brk = true starts a new stroke: the ribbon is not drawn from the previous point to this one.
+  const addPoint = (x, y, brk = false, sparks = true) => {
     const last = points[points.length - 1];
-    if (last && Math.hypot(x - last.x, y - last.y) < 2) return;
-    points.push({ x, y, life: 1 });
+    if (!brk && last && Math.hypot(x - last.x, y - last.y) < 2) return;
+    points.push({ x, y, life: 1, brk });
     if (points.length > MAX_POINTS) points.shift();
-    if (Math.random() < 0.55) {
+    if (sparks && Math.random() < 0.55) {
       const a = Math.random() * Math.PI * 2, s = 0.3 + Math.random() * 1.2;
       particles.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 1, r: 1 + Math.random() * 2.2, c: COLORS[(hue++) % 3] });
     }
     wake();
   };
 
-  const isBackground = (target) => !(target instanceof Element) || !target.closest(CONTENT);
+  // Is the viewport point (x, y) over empty background? Uses what is actually under that point,
+  // so it works for touch drags too (a touch keeps its start element as e.target).
+  const isBackgroundAt = (x, y) => {
+    const el = document.elementFromPoint(x, y);
+    return !el || !el.closest(CONTENT);
+  };
+
+  // Fast moves give samples far apart. Fill the gap with points every STEP px and break the
+  // ribbon wherever a filled-in point lands on content, so no straight segment crosses a card.
+  const STEP = 6;
+  const MAX_GAP_MS = 80;   // only fill gaps between samples that are close in time (a real flick), not after an idle jump
+  let lastSample = null;   // previous pointer sample {x, y, t}
+  let pendingBreak = true; // next added point starts a new stroke
+
+  const sample = (x, y) => {
+    const now = performance.now();
+    if (lastSample && now - lastSample.t > MAX_GAP_MS) { lastSample = null; pendingBreak = true; }
+    if (lastSample) {
+      const d = Math.hypot(x - lastSample.x, y - lastSample.y);
+      if (d > STEP * 1.5) {
+        const n = Math.ceil(d / STEP);
+        for (let k = 1; k < n; k++) {
+          const ix = lastSample.x + ((x - lastSample.x) * k) / n;
+          const iy = lastSample.y + ((y - lastSample.y) * k) / n;
+          if (isBackgroundAt(ix, iy)) { addPoint(ix, iy, pendingBreak, false); pendingBreak = false; }
+          else pendingBreak = true;
+        }
+      }
+    }
+    if (isBackgroundAt(x, y)) { addPoint(x, y, pendingBreak); pendingBreak = false; }
+    else pendingBreak = true;
+    lastSample = { x, y, t: now };
+  };
+  const resetSample = () => { lastSample = null; pendingBreak = true; };
 
   window.addEventListener('pointermove', (e) => {
     if (e.pointerType === 'touch') return;
-    if (isBackground(e.target)) addPoint(e.clientX, e.clientY);
+    sample(e.clientX, e.clientY);
   }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', resetSample);
 
-  // Touch: gentle trail while dragging on the background.
+  // Touch: gentle trail while dragging over the background, checked at each touch point.
+  window.addEventListener('touchstart', resetSample, { passive: true });
+  window.addEventListener('touchend', resetSample, { passive: true });
   window.addEventListener('touchmove', (e) => {
     const t = e.touches[0];
-    if (t && isBackground(e.target)) addPoint(t.clientX, t.clientY);
+    if (t) sample(t.clientX, t.clientY);
   }, { passive: true });
 
   let raf = 0;
@@ -142,6 +181,7 @@ const SITE = {
     if (points.length > 2) {
       for (let i = 1; i < points.length - 1; i++) {
         const p0 = points[i - 1], p1 = points[i], p2 = points[i + 1];
+        if (p1.brk || p2.brk) continue;
         const t = i / points.length;
         const life = p1.life;
         const c = t < 0.5 ? COLORS[0] : (t < 0.8 ? COLORS[1] : COLORS[2]);

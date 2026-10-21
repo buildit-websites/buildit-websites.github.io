@@ -12,6 +12,21 @@
   <meta property="og:description" content="A secure website, your domain, and hosting, all looked after for you.">
   <meta property="og:locale" content="en_AU">
   <meta property="og:site_name" content="BuildIt">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BuildIt | Websites for local businesses, done for you">
+  <meta name="twitter:description" content="A secure website, your domain, and hosting, all looked after for you.">
+  <!--
+    TODO (once the live domain is known): these need absolute URLs, so they are left out for now.
+    Replace https://YOUR-DOMAIN with the real domain, then uncomment.
+    <link rel="canonical" href="https://YOUR-DOMAIN/">
+    <meta property="og:url" content="https://YOUR-DOMAIN/">
+    <meta property="og:image" content="https://YOUR-DOMAIN/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BuildIt: Your business online. We handle everything.">
+    <meta name="twitter:image" content="https://YOUR-DOMAIN/og-image.png">
+    The social image og-image.png (1200x630) belongs in the site root.
+  -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +37,8 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "BuildIt",
-    "email": "finlaysontomas@gmail.com"
+    "email": "finlaysontomas@gmail.com",
+    "description": "A secure HTTPS website, your own domain, and hosting, built and looked after for you."
   }
   </script>
   <script>document.documentElement.classList.add('js');</script>
@@ -47,6 +63,7 @@
         <ul>
           <li><a href="#what-you-get">What you get</a></li>
           <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a class="btn btn--primary btn--sm" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto>Email us</a>
@@ -136,6 +153,42 @@
       </div>
     </section>
 
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <p class="eyebrow reveal">Pricing</p>
+        <h2 id="pricing-title" class="section__title reveal">Two plans</h2>
+        <div class="plans">
+          <article class="card plan reveal" aria-labelledby="plan-website-title">
+            <h3 id="plan-website-title" class="plan__name">Website</h3>
+            <p class="plan__price"><span class="plan__amount">$850</span> <span class="plan__term">one-time</span></p>
+            <p class="plan__desc">Just the website: the site, the domain and hosting. No care package, no weekly updates.</p>
+            <ul class="plan__list">
+              <li class="is-in">HTTPS website</li>
+              <li class="is-in">Domain</li>
+              <li class="is-in">Hosting</li>
+              <li class="is-out"><span class="visually-hidden">Not included: </span>Weekly updates</li>
+              <li class="is-out"><span class="visually-hidden">Not included: </span>Care package</li>
+            </ul>
+            <a class="btn btn--ghost plan__cta" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry%3A%20Website" data-mailto data-subject="Website enquiry: Website" aria-label="Email us about the Website plan">Email us</a>
+          </article>
+          <article class="card plan plan--featured reveal" aria-labelledby="plan-care-title">
+            <p class="plan__tag">Most complete</p>
+            <h3 id="plan-care-title" class="plan__name">Website + Care</h3>
+            <p class="plan__price"><span class="plan__amount">$1,300</span> <span class="plan__term">one-time</span></p>
+            <p class="plan__desc">HTTPS website with domain, hosting and weekly updates. We take care of everything for you.</p>
+            <ul class="plan__list">
+              <li class="is-in">HTTPS website</li>
+              <li class="is-in">Domain</li>
+              <li class="is-in">Hosting</li>
+              <li class="is-in">Weekly updates</li>
+              <li class="is-in">We take care of everything</li>
+            </ul>
+            <a class="btn btn--primary plan__cta" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry%3A%20Website%20%2B%20Care" data-mailto data-subject="Website enquiry: Website + Care" aria-label="Email us about the Website + Care plan">Email us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section cta" id="contact" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta__band reveal">
@@ -155,6 +208,7 @@
         <ul>
           <li><a href="#what-you-get">What you get</a></li>
           <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto>Email us</a></li>
         </ul>
       </nav>
