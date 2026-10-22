@@ -39,6 +39,11 @@ const SITE = {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
     });
     window.matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+    // Close the mobile menu when keyboard focus leaves the header, so focus never lands behind the open menu.
+    const header = toggle.closest('header');
+    header.addEventListener('focusout', (e) => {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !header.contains(e.relatedTarget)) setOpen(false);
+    });
   }
 
   /* ---------- Scroll reveal ---------- */
@@ -166,9 +171,23 @@ const SITE = {
   let raf = 0;
   const wake = () => { if (!raf && !document.hidden) raf = requestAnimationFrame(frame); };
 
+  // Outermost content boxes. The trail is clipped out of these so its glow never bleeds onto text.
+  const contentBoxes = [...document.querySelectorAll(CONTENT)].filter((el) => !el.parentElement.closest(CONTENT));
+  const clipOutContent = () => {
+    ctx.beginPath();
+    ctx.rect(0, 0, w, h);
+    for (const el of contentBoxes) {
+      const r = el.getBoundingClientRect();
+      if (r.width && r.height && r.bottom > 0 && r.top < h && r.right > 0 && r.left < w) ctx.rect(r.left, r.top, r.width, r.height);
+    }
+    ctx.clip('evenodd');
+  };
+
   function frame() {
     raf = 0;
     ctx.clearRect(0, 0, w, h);
+    ctx.save();
+    clipOutContent();
     ctx.globalCompositeOperation = 'lighter';
 
     // Fade ribbon points
@@ -213,6 +232,7 @@ const SITE = {
     }
 
     ctx.globalCompositeOperation = 'source-over';
+    ctx.restore();
     if (points.length || particles.length) wake();
   }
 
