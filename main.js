@@ -7,6 +7,8 @@ const SITE = {
   name: 'BuildIT',
   email: 'finlaysontomas@gmail.com',
   emailSubject: 'Website enquiry',
+  phone: '0403 993 242',
+  phoneIntl: '+61403993242',
 };
 
 (() => {
@@ -18,6 +20,8 @@ const SITE = {
   /* ---------- Fill name, email and mailto links from SITE ---------- */
   document.querySelectorAll('[data-site="name"]').forEach((el) => { el.textContent = SITE.name; });
   document.querySelectorAll('[data-site="email"]').forEach((el) => { el.textContent = SITE.email; });
+  document.querySelectorAll('[data-site="phone"]').forEach((el) => { el.textContent = SITE.phone; });
+  document.querySelectorAll('[data-tel]').forEach((el) => { el.setAttribute('href', `tel:${SITE.phoneIntl}`); });
   document.querySelectorAll('[data-mailto]').forEach((el) => {
     const subject = el.dataset.subject || SITE.emailSubject;
     el.setAttribute('href', `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`);
