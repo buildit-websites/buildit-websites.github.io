@@ -297,3 +297,9 @@ header, main, footer { position: relative; z-index: 1; }
 @media (max-width: 560px) {
   .card .plan__tag { position: static; align-self: flex-start; margin-bottom: 14px; }
 }
+
+/* Pricing tag: sits top-right only when the card is wide enough; otherwise it moves above the title. */
+.plan { container-type: inline-size; }
+@container (max-width: 340px) {
+  .card .plan__tag { position: static; align-self: flex-start; margin-bottom: 14px; }
+}
