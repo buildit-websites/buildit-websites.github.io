@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://buildit-websites.netlify.app/sitemap.xml
+Sitemap: https://finlaysontomas.github.io/Tomas-bussiness/sitemap.xml
