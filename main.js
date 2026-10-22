@@ -4,7 +4,7 @@
    Open Graph and JSON-LD, which search engines read without JS.)
    ============================================================ */
 const SITE = {
-  name: 'BuildIt',
+  name: 'BuildIT',
   email: 'finlaysontomas@gmail.com',
   emailSubject: 'Website enquiry',
 };

@@ -1,4 +1,4 @@
-# BuildIt website
+# BuildIT website
 
 Static site: plain HTML, CSS and vanilla JavaScript. No build step.
 
