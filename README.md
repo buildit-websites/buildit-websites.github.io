@@ -28,7 +28,7 @@ Edit the `SITE` object at the top of `main.js`. Also update the copies in the `<
 
 ## Live URL
 
-The site URL `https://finlaysontomas.github.io/Tomas-bussiness` (dev copy on GitHub Pages; switch to the final domain at launch) appears in `index.html` (canonical, Open Graph, Twitter, JSON-LD), `sitemap.xml` and `robots.txt`. Update all of them if the domain changes.
+The site URL `https://buildit-websites.github.io` (dev copy on GitHub Pages, repo buildit-websites/buildit-websites.github.io; switch to the final domain at launch) appears in `index.html` (canonical, Open Graph, Twitter, JSON-LD), `sitemap.xml` and `robots.txt`. Update all of them if the domain changes.
 
 ## Update frequency wording
 
