@@ -41,7 +41,7 @@ The change log lives in this README. `ideas.html` is still in the repo, marked `
 
 Each item is something a small web-business site benefits from. Take the ones you want. The rest can be deleted without breaking the others.
 
-1. **Tabs, one job per page.** Home, Why I'm doing this, Services, Social, Work, Pricing, How it works, About, FAQ and Contact. Social jumps to the social media marketing section. The look is a dark studio site: large type, a cyan business-type band, glass cards, and pricing levels. Level 3 is social media marketing and the price says Ask me. The cursor trail and the scroll-in reveal are the same code as Tomas's live site. The trail stays off when reduced motion is on. A mouse move draws it on empty background. A touch pointer does not. A finger drag still draws over the background, which is what the live site does.
+1. **Tabs, one job per page.** Home, Why I'm doing this, Services, Social, Work, Pricing, How it works, About, FAQ and Contact. Social jumps to the social media marketing section. The look is a dark studio site: large type, a cyan business-type band, glass cards, and pricing levels. Level 3 is social media marketing and the price says Ask me. Scroll-in reveals stay. The square grid and the cursor trail are gone. A soft aurora sits behind the pages, and the lights swell when a mouse moves through open background. That reaction is off for reduced motion and for touch.
 
 2. **Your copy stays put.** Branding, Ember & Oat, Ironbark Electrical, Lux-Lashes ([lux-lashes.com](https://www.lux-lashes.com)), and Innovo ([innovotech.com](https://www.innovotech.com)) are from the live site. The email is now **tomas@buildit.net.au**. See item 19. [Perfect Jobs & Adventures](https://perfectjobsandadventures.github.io/) is a real site Tomas built. It is first under Current work on the home page and the Work page, tagged Live site, ahead of the example designs. The card image is a screenshot of the live homepage at `assets/work/perfectjobs.png`. The link opens in a new tab. The description says what the site is. No stats, results or testimonials were added. The phone number is **0403 993 242** (`tel:+61403993242`) on every page, the call buttons, and the search listing. The dollar amounts are the same: **Design & build $1,250 one-time**, **Design & build + Hosting & monitoring $1,800 up front, then $99 a month**. Hosting is no longer inside the $1,250. See item 15.
 
@@ -85,7 +85,7 @@ Each item is something a small web-business site benefits from. Take the ones yo
 
 - `index.html`, `story.html`, `offers.html` and the other pages listed above
 - `styles.css`: Tomas's styles, plus layout for the page heroes, comparison table, form, placeholders and the earlier menu breakpoint
-- `main.js`: site details (name, email, phone), mobile nav, the contact-form plan link, scroll reveal, card tilt, cursor trail
+- `main.js`: site details (name, email, phone), mobile nav, the contact-form plan link, scroll reveal, card tilt, work-preview travel, aurora lights
 - `404.html`: missing URLs. On GitHub project Pages, a small script points its CSS at `/buildit-nick-version/` when the missing address is nested
 - `favicon.svg`, `og-image.png`, `robots.txt`, `sitemap.xml`
 - `work/`: screenshots of Lux-Lashes and Innovo

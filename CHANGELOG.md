@@ -1,5 +1,12 @@
 # BuildIT remodel — local working copy
 
+## Premium atmosphere pass
+
+- Removed the square grid, the film-grain overlay, and the cursor trail.
+- Pages sit on a navy aurora. On a fine pointer, the lights swell when the cursor moves through open background. Reduced motion and touch leave them still.
+- Work cards (Perfect Jobs, Lux-Lashes, Innovo, Ember & Oat, Ironbark) scroll the full screenshot on hover. The frame is shorter on a mouse so the travel is obvious. Touch and reduced motion keep the top of the screenshot still.
+- Prices, phone, email, and the story at the bottom are unchanged.
+
 ## Premium sales pass
 
 - Home opens with the price ($1,250, up to 5 pages, ex GST), the phone **0403 993 242**, and a Contact us button.
