@@ -6,25 +6,28 @@
   <title>Page not found | BuildIT</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#070a16">
-  <link id="site-icon" rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link id="site-icon" rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
-  <link id="site-css" rel="stylesheet" href="styles.css">
+  <link id="site-css" rel="stylesheet" href="/styles.css">
   <script>
-    // GitHub project Pages serves this file at the missing URL. Relative CSS
-    // breaks when that URL is nested. Point assets at the project root.
+    // GitHub Pages serves this file at the missing URL. Root-absolute assets
+    // stay on the site root when that URL is nested (for example /examples/nope/x).
+    // The retired project path still gets its own prefix.
     (function () {
       var marker = "/buildit-nick-version/";
       var path = location.pathname;
       var atKnownFile = /\/[^/]+\.html$/.test(path) || path.endsWith("/");
-      var jsSrc = "main.js";
+      var jsSrc = "/main.js";
       if (path.indexOf(marker) === 0 && !atKnownFile) {
         document.getElementById("site-css").href = marker + "styles.css";
         document.getElementById("site-icon").href = marker + "favicon.svg";
         jsSrc = marker + "main.js";
-        document.querySelectorAll("[data-root]").forEach(function (a) {
-          a.setAttribute("href", marker + a.getAttribute("href"));
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-root]").forEach(function (a) {
+            a.setAttribute("href", marker + a.getAttribute("href").replace(/^\//, ""));
+          });
         });
       }
       var js = document.createElement("script");
@@ -49,7 +52,7 @@
       <h1 class="hero__title">This page <span class="gradient-text">does not exist.</span></h1>
       <p class="hero__sub">The link may be broken or the page may have moved.</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="index.html" data-root>Back to home</a>
+        <a class="btn btn--primary" href="/index.html" data-root>Back to home</a>
         <a class="btn btn--ghost" href="mailto:tomas@buildit.net.au?subject=Website%20enquiry">Email me</a>
       </div>
     </div>
