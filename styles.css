@@ -613,7 +613,7 @@ h1 .gradient-text {
   .compare-hint { display: block; }
 }
 
-/* Story, offers, optional hosting, social */
+/* Story, offers, optional hosting */
 @media (min-width: 1181px) and (max-width: 1500px) {
   .nav__menu { gap: 10px; }
   .nav__menu ul { gap: 10px; }
@@ -692,7 +692,7 @@ h1, h2, h3, p, li, td, th, a { overflow-wrap: break-word; }
 .mega--cyan { background: #67e8f9; }
 .mega .btn { color: #070a16; border-color: #070a16; background: transparent; }
 .mega .btn--primary { background: #070a16; color: #eef2ff; border-color: #070a16; }
-.levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+.levels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
 .level {
   background: #0b1024; border: 3px solid var(--c, var(--cyan)); border-radius: 24px; padding: 22px 20px 18px;
   transform: rotate(var(--r, 0deg)); transition: transform .35s ease;
@@ -708,11 +708,6 @@ h1, h2, h3, p, li, td, th, a { overflow-wrap: break-word; }
 @keyframes barIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .level ul { list-style: disc; padding-left: 1.1em; color: var(--muted); display: grid; gap: 6px; }
 .level--unlock { border-color: var(--magenta); }
-.social-band {
-  border: 1px solid rgba(167, 139, 250, .55);
-  border-radius: 24px; padding: 28px;
-  background: linear-gradient(160deg, rgba(167,139,250,.16), rgba(7,10,22,.2));
-}
 .backed {
   background: #0b1024;
   border: 3px solid var(--cyan);
@@ -786,7 +781,6 @@ p.trust-line { margin: 14px 0 0; max-width: 40rem; font-weight: 600; color: var(
 .val h3 a { color: var(--text); text-decoration: none; }
 .val h3 a:hover { color: var(--cyan); }
 .mega-offers--3 { grid-template-columns: repeat(3, 1fr); }
-.mega--social { background: #f9a8d4; }
 .page-hero.hero--allin { min-height: 0; padding: 56px 0 8px; align-items: end; }
 .page-hero.hero--allin .hero__title { font-size: clamp(3rem, 7vw, 5.8rem); max-width: 14ch; letter-spacing: -.04em; }
 .container.prose:not(:has(.vals)) {
@@ -1066,7 +1060,7 @@ h1 .gradient-text,
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   max-width: none;
 }
-.levels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.levels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .pinned { padding: 88px 0; }
 .pinned__intro .section__title { margin-bottom: 12px; }

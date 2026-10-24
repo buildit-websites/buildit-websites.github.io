@@ -56,7 +56,7 @@ const SITE = {
   if (contactForm) {
     const planInput = contactForm.querySelector('[name="plan"]');
     const wantedPlan = new URLSearchParams(window.location.search).get('plan');
-    const knownPlans = ['design', 'design-hosting', 'hosting', 'social', 'unsure'];
+    const knownPlans = ['design', 'design-hosting', 'hosting', 'unsure'];
     if (planInput && knownPlans.includes(wantedPlan)) planInput.value = wantedPlan;
   }
 
@@ -271,7 +271,7 @@ const SITE = {
   if (!reduceMotion && !coarsePointer) {
     const orbs = [...document.querySelectorAll('.orb')];
     if (orbs.length) {
-      const SOLID = 'a, button, input, textarea, select, label, summary, h1, h2, h3, h4, p, li, td, th, img, .card, .level, .nav, .cta__band, .marquee, .form-card, .pinned__step, .hero__sellrow, .hero__actions, .social-band, .backed, .frame, .faq__item, .placeholder, .compare-wrap, .notes article, .eyebrow';
+      const SOLID = 'a, button, input, textarea, select, label, summary, h1, h2, h3, h4, p, li, td, th, img, .card, .level, .nav, .cta__band, .marquee, .form-card, .pinned__step, .hero__sellrow, .hero__actions, .backed, .frame, .faq__item, .placeholder, .compare-wrap, .notes article, .eyebrow';
       let px = -9999;
       let py = -9999;
       let raf = 0;
