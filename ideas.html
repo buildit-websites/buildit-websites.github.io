@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
   <link rel="stylesheet" href="styles.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!CSS.supports('animation-timeline: view()'))document.documentElement.classList.add('reveal-io');}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -54,7 +54,6 @@
           <li><a href="services.html#social">Social</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="offers.html">Offers</a></li>
           <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
@@ -78,11 +77,11 @@
         <div class="notes">
           <article class="reveal">
             <h3>Tabs, one job per page</h3>
-            <p>Home, Why I'm doing this, Services, Work, Pricing, Offers, How it works, About, FAQ and Contact. Your live site is one long page, which is a good start. Separate pages let someone open Pricing or Work directly, and they show the shape of the business at a glance. Why I'm doing this is its own tab, placed next to Home. Social media marketing is not its own tab. It lives on Services and Pricing, which are already in the menu.</p>
+            <p>Home, Why I'm doing this, Services, Work, Pricing, How it works, About, FAQ and Contact. Your live site is one long page, which is a good start. Separate pages let someone open Pricing or Work directly, and they show the shape of the business at a glance. Why I'm doing this is its own tab, placed next to Home. Social media marketing is not its own tab. It lives on Services and Pricing, which are already in the menu.</p>
           </article>
           <article class="reveal">
             <h3>Your copy stays</h3>
-            <p>BuildIT branding, Ember &amp; Oat, Ironbark Electrical, Lux-Lashes (lux-lashes.com), and Innovo (innovotech.com) are yours. The email on the site is now <strong>tomas@buildit.net.au</strong>. The phone number on every page, the contact buttons, and the search listing is <strong>+61 403 993 241</strong>. The dollar amounts are the same: $1,250, $1,800 up front, and $99 a month. Hosting is no longer bundled into the $1,250. The plan names changed. See the notes at the bottom.</p>
+            <p>BuildIT branding, Ember &amp; Oat, Ironbark Electrical, Lux-Lashes (lux-lashes.com), and Innovo (innovotech.com) are yours. The email on the site is now <strong>tomas@buildit.net.au</strong>. The phone number on every page, the contact buttons, and the search listing is <strong>0403 993 242</strong>. The dollar amounts are the same: $1,250, $1,800 up front, and $99 a month. Hosting is no longer bundled into the $1,250. The plan names changed. See the notes at the bottom.</p>
             <p>Perfect Jobs &amp; Adventures (<a href="https://perfectjobsandadventures.github.io/">perfectjobsandadventures.github.io</a>) is a real site you built. It is first under Current work on the home page and the Work page, tagged Live site, ahead of the example designs. The card image is a screenshot of the live homepage, saved at <code>assets/work/perfectjobs.png</code>. The link opens in a new tab. The one-line description is what the site is. No stats, results or testimonials were added.</p>
           </article>
           <article class="reveal">
@@ -95,7 +94,7 @@
           </article>
           <article class="reveal">
             <h3>Contact and brief forms email you directly</h3>
-            <p>Both forms post to FormSubmit, which emails <strong>tomas@buildit.net.au</strong>. There is no Netlify Forms step and no dashboard to open. The contact subject is "BuildIT website enquiry". The brief subject is "BuildIT design brief". After a send, the page goes to thanks.html. The mailto links stay on the pages as a fallback. The first real submission asks FormSubmit to send you one activation email. A link such as the charity button still adds the plan, without a plan menu on the form.</p>
+            <p>Both forms post to FormSubmit, which emails <strong>tomas@buildit.net.au</strong>. There is no Netlify Forms step and no dashboard to open. The contact subject is "BuildIT website enquiry". The brief subject is "BuildIT design brief". After a send, the page goes to thanks.html. The mailto links stay on the pages as a fallback. The first real submission asks FormSubmit to send you one activation email.</p>
           </article>
           <article class="reveal">
             <h3>A next step on every page</h3>
@@ -103,7 +102,7 @@
           </article>
           <article class="reveal">
             <h3>Mobile menu and contrast</h3>
-            <p>Why I'm doing this and Offers are extra tabs. From 1040px wide and down, they sit in the menu button with the others, and the open menu scrolls. Between 1041px and 1420px the desktop links use a slightly tighter gap so the longer tab still fits at 1280px. Your dark colours already clear WCAG AA for normal text. Unset prices are the word Placeholder, not colour alone. The table still says "Included" and "Not included" in words.</p>
+            <p>From 1180px wide and down, the links sit in the menu button, and the open menu scrolls. Between 1181px and 1500px the desktop links use a slightly tighter gap. Your dark colours already clear WCAG AA for normal text. Unset prices are the word Placeholder, not colour alone. The table still says "Included" and "Not included" in words.</p>
           </article>
           <article class="reveal">
             <h3>Share preview image</h3>
@@ -115,20 +114,12 @@
           </article>
           <article class="reveal">
             <h3>All In look, and the cursor trail</h3>
-            <p>The public pages now use the playful All In look: huge type, a tilted magenta word in the headlines, a round cyan price sticker on the home page, a rotating strip of your values, tilted value cards, and big offer cards. Pricing is shown as levels in that same look. Level 1 is design and build at $1,250. Level 2 is design and build plus hosting and monitoring at $1,800 up front, then $99 a month. Level 3 is social media marketing, and the price says Ask me. Social is in the menu, on the home page, on Services, and on Pricing. The cursor trail and the scroll-in reveal are the same ones from your live site. The trail is off when someone asks for reduced motion. A mouse move draws it on the empty background. A touch pointer does not. A finger drag still draws while it is over the background, which is how the live site behaves. The trail stays off text, cards, the sticker, the value cards, the offer cards, and the levels. Contact now opens like Home: a big first-person headline, the values strip, tilted cards for the phone, email and contract, a compact form, the free and social offers, and the Innovo card. The form card stays about 520px wide. The other pages use the same big headline and values strip.</p>
+            <p>The public pages use large type, a cyan band of business types, glass cards, and pricing levels. Level 1 is design and build at $1,250. Level 2 is design and build plus hosting and monitoring at $1,800 up front, then $99 a month. Level 3 is social media marketing, and the price says Ask me. Social is in the menu, on the home page, on Services, and on Pricing. The cursor trail stays. The trail is off when someone asks for reduced motion. A mouse move draws it on the empty background. A touch pointer does not. A finger drag still draws while it is over the background. The trail stays off text, cards, and the levels. Contact opens with the phone, the email, and a compact form. The form card stays about 520px wide.</p>
           </article>
           <article class="reveal">
             <h3>Why I'm doing this</h3>
-            <p>The home page, near the top, and its own nav tab now say why you are doing this, in the first person, as something you are doing now. The draft says: not long ago you were making choices you are not proud of, and you hurt people. You are changing that, right now. This business is how you are doing it, one honest job at a time. The charity offer and the first-5 business offer are two separate offers. The values are what you are doing now, every day: honesty (the real price and timeline, no surprises), owning it (if you get something wrong, you fix it), giving back, earning trust, and showing up (you do what you say, when you say). No events, numbers or quotes were added. The same lines are on About, Offers, Pricing, Contact, FAQ and How it works, wherever those offers are explained.</p>
+            <p>The home page, at the bottom, and its own nav tab now say why you are doing this, in the first person, as something you are doing now. The draft says: not long ago you were making choices you are not proud of, and you hurt people. You are changing that, right now. This business is how you are doing it, one honest job at a time. The story page values are honesty (the real price and timeline, no surprises), owning it (if you get something wrong, you fix it), and showing up (you do what you say, when you say). No events, numbers or quotes were added.</p>
             <p><strong>Edit this copy into your own words.</strong></p>
-          </article>
-          <article class="reveal">
-            <h3>Charity offer</h3>
-            <p>The public line is: "Free for every Northern Beaches charity, with no limit: I'll design and build your website for free." Then: "The design and build is free. Hosting isn't included. All I ask is an honest review." There is no page charge and no revision charge, and the free-offer copy names no price. This offer is not capped at 5. The 5 applies only to local businesses. It is on Offers, Home, Pricing, Services, the brief, Contact, and the FAQ. The contact form can open with "Charity" already chosen.</p>
-          </article>
-          <article class="reveal">
-            <h3>Founding clients</h3>
-            <p>The public line is: "Free for my first 5 local businesses: the first 5 Northern Beaches businesses get their website designed and built for free." The limit of 5 is only for local businesses. It is not a cap on charities, and it is not a count of businesses already signed. No "spots left" number was added. The design and build is free. Hosting isn't included. All you ask is an honest review. There is no obligation. No review text was written, because none has been given. Paid prices stay on the paid plans.</p>
           </article>
           <article class="reveal">
             <h3>Hosting is optional</h3>
@@ -136,11 +127,11 @@
           </article>
           <article class="reveal">
             <h3>Social media marketing</h3>
-            <p>A new service: post building, content creation, and active sales and marketing via socials. It is on Services, on Pricing, on the home page as a price card, and in the contact form. There is no separate tab. The price says <strong>Placeholder</strong>. Networks and how many posts are not set. No results, follower counts or ad spend were invented. The public pages do not ask you to fill those in. Set the price when you have one.</p>
+            <p>A new service: post building, content creation, and active sales and marketing via socials. It is on Services, on Pricing, on the home page as a price card, and in the contact form. There is no separate tab. The price says <strong>Ask me</strong>. Networks and how many posts are not set. No results, follower counts or ad spend were invented. The public pages do not ask you to fill those in. Set the price when you have one.</p>
           </article>
           <article class="reveal">
             <h3>Page limits</h3>
-            <p>Design and build at $1,250, ex GST, is up to 5 pages and 3 revisions. Design and build plus hosting and monitoring at $1,800 up front, then $99 a month, ex GST, is up to 8 pages, a basic SEO set-up (titles, descriptions, a Google Business link, and analytics), hosting and monitoring, and 3 revisions. Extra pages are $150 per page, ex GST, on either paid plan. That is on the home price cards, the Pricing levels, the paid plan cards, the comparison table, Services, and the paid FAQ answers. Those figures are not in the free-offer text. The FAQ question is "What if I need more pages?" The old line about tweaking until someone is happy now says 3 revisions.</p>
+            <p>Design and build at $1,250, ex GST, is up to 5 pages and 3 revisions. Design and build plus hosting and monitoring at $1,800 up front, then $99 a month, ex GST, is up to 8 pages, a basic SEO set-up (titles, descriptions, a Google Business link, and analytics), hosting and monitoring, and 3 revisions. Extra pages are $150 per page, ex GST, on either paid plan. That is on the home price cards, the Pricing levels, the paid plan cards, the comparison table, Services, and the paid FAQ answers. The FAQ question is "What if I need more pages?" The old line about tweaking until someone is happy now says 3 revisions.</p>
           </article>
           <article class="reveal">
             <h3>One assurance line</h3>
@@ -180,7 +171,6 @@
           <li><a href="services.html#social">Social</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="offers.html">Offers</a></li>
           <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>

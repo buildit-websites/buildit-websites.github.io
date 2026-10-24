@@ -36,12 +36,12 @@
     "image": "https://buildit-websites.github.io/og-image.png",
     "logo": "https://buildit-websites.github.io/favicon.svg",
     "email": "tomas@buildit.net.au",
-    "telephone": "+61403993241",
+    "telephone": "+61403993242",
     "areaServed": "Northern Beaches, Sydney",
     "description": "Quality websites for local businesses on Sydney's Northern Beaches. Clear prices from $1,250 ex GST for design and build, your choice of .com or .com.au, and optional hosting and monitoring."
   }
   </script>
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!CSS.supports('animation-timeline: view()'))document.documentElement.classList.add('reveal-io');}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -67,35 +67,41 @@
           <li><a href="services.html#social">Social</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="offers.html">Offers</a></li>
           <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
-        <a class="btn btn--primary btn--sm" href="brief.html">Start your project</a>
+        <a class="btn btn--primary btn--sm" href="brief.html" data-magnetic>Start your project</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero hero--allin" aria-labelledby="page-title">
+    <section class="hero hero--sell" aria-labelledby="page-title">
+      <canvas id="aurora" class="aurora" aria-hidden="true"></canvas>
       <div class="container hero__inner">
         <p class="eyebrow reveal">Northern Beaches · Australia-wide · Websites for local businesses</p>
-        <h1 id="page-title" class="hero__title reveal">Your business <span class="gradient-text">online.</span> Designed &amp; built.</h1>
-        <p class="hero__sub reveal">I design and build a website for your business, and set up your choice of a .com or a .com.au. Hosting and monitoring are optional. You tell me about your business. I do the rest.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="contact.html">Contact me</a>
-          <a class="btn btn--ghost" href="work.html">See the work</a>
+        <h1 id="page-title" class="hero__title split" aria-label="Your business online. Designed and built.">
+          <span class="split__line" aria-hidden="true"><span>Your business online.</span></span>
+          <span class="split__line" aria-hidden="true"><span>Designed &amp; <span class="gradient-text">built.</span></span></span>
+        </h1>
+        <div class="hero__sellrow">
+          <p class="hero__price"><span>Design &amp; build</span><strong>$1,250</strong><small>up to 5 pages · ex GST</small></p>
+          <a class="hero__phone" href="tel:+61403993242" data-tel><small>Call or text</small><span data-site="phone">0403 993 242</span></a>
         </div>
-        <p class="sticker">Design &amp; build<br>$1,250<br><small>up to 5 pages<br>ex GST</small></p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="contact.html" data-magnetic>Contact us</a>
+          <a class="btn btn--ghost" href="#work-preview">See the work</a>
+        </div>
+        <p class="hero__sub reveal">I design and build a website for your business, and set up your choice of a .com or a .com.au. Hosting and monitoring are optional. You tell me about your business. I do the rest.</p>
       </div>
     </section>
 
     <div class="marquee-clip marquee-clip--biz">
       <div class="marquee marquee--biz" aria-hidden="true">
         <div class="marquee__track">
-          <span>Cafes ✦ Trades ✦ Salons ✦ Clinics ✦ Gyms ✦ Retail ✦ Local services ✦&nbsp;</span>
-          <span>Cafes ✦ Trades ✦ Salons ✦ Clinics ✦ Gyms ✦ Retail ✦ Local services ✦&nbsp;</span>
+          <span>Cafés · Trades · Salons · Clinics · Gyms · Retail · Local services ·&nbsp;</span>
+          <span>Cafés · Trades · Salons · Clinics · Gyms · Retail · Local services ·&nbsp;</span>
         </div>
       </div>
     </div>
@@ -136,33 +142,38 @@
       </div>
     </section>
 
-    <section class="section" id="how" aria-labelledby="how-title">
-      <div class="container">
-        <p class="eyebrow reveal">How it works</p>
-        <h2 id="how-title" class="section__title reveal">Four simple steps</h2>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">01</span>
-            <h3>You get in touch</h3>
-            <p>Tell me about your business, what you'd like customers to know, and any sites you like the look of. If you have a logo or photos, send them too. If not, that's fine.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">02</span>
-            <h3>I design and build it</h3>
-            <p>I put together your site and send you a preview link. You tell me what to change. The price includes 3 revisions.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">03</span>
-            <h3>I launch it on your domain</h3>
-            <p>Once you give the go-ahead, and if hosting is part of the job, the site goes live at your web address over HTTPS. If you only want design and build, I hand the site over so you can host it where you choose.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">04</span>
-            <h3>I keep it running, if you add hosting</h3>
-            <p>Hosting is optional. If you add Hosting &amp; monitoring, I keep the site online. On design and build alone, hosting is not included, and the site is handed over for you to host.</p>
-          </li>
-        </ol>
-        <p class="reveal more-link"><a href="how-it-works.html">Read the process</a></p>
+    <section class="section pinned" id="how" data-pinned aria-labelledby="how-title">
+      <div class="pinned__sticky">
+        <div class="container pinned__grid">
+          <div class="pinned__intro">
+            <p class="eyebrow">How it works</p>
+            <h2 id="how-title" class="section__title">Four simple steps</h2>
+            <p class="more-link"><a href="how-it-works.html">Read the process</a></p>
+            <div class="pinned__rail" aria-hidden="true"><span></span></div>
+          </div>
+          <ol class="pinned__steps">
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">01</p>
+              <h3>You get in touch</h3>
+              <p>Tell me about your business, what you'd like customers to know, and any sites you like the look of. If you have a logo or photos, send them too. If not, that's fine.</p>
+            </li>
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">02</p>
+              <h3>I design and build it</h3>
+              <p>I put together your site and send you a preview link. You tell me what to change. The price includes 3 revisions.</p>
+            </li>
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">03</p>
+              <h3>I launch it on your domain</h3>
+              <p>Once you give the go-ahead, and if hosting is part of the job, the site goes live at your web address over HTTPS. If you only want design and build, I hand the site over so you can host it where you choose.</p>
+            </li>
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">04</p>
+              <h3>I keep it running, if you add hosting</h3>
+              <p>Hosting is optional. If you add Hosting &amp; monitoring, I keep the site online. On design and build alone, hosting is not included, and the site is handed over for you to host.</p>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -209,6 +220,30 @@
         </div>
         <h3 class="work__subtitle work__subtitle--next reveal">Example designs</h3>
         <p class="section__lead work__lead reveal">Example sites for fictional businesses: <a href="examples/cafe/">Ember &amp; Oat</a>, a cafe, and <a href="examples/electrician/">Ironbark Electrical</a>, an electrician. Every site I build is designed for you rather than copied from a template.</p>
+        <div class="work">
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ember-and-oat.example</span></div>
+              <div class="frame__view"><img src="examples/cafe/preview.webp" width="720" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Ember &amp; Oat <span class="work__type">Cafe &amp; bakery</span></h3>
+              <p>A warm, editorial look for a neighbourhood cafe, with a menu, opening hours, a photo gallery and a spot for catering enquiries.</p>
+              <a class="work__link" href="examples/cafe/">View live example<span class="visually-hidden">: Ember &amp; Oat cafe</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ironbark-electrical.example</span></div>
+              <div class="frame__view"><img src="examples/electrician/preview.webp" width="720" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Ironbark Electrical <span class="work__type">Electrician</span></h3>
+              <p>A bold, high-contrast site for a local tradie, built to get the phone ringing, with services, a service area and a quote request form.</p>
+              <a class="work__link" href="examples/electrician/">View live example<span class="visually-hidden">: Ironbark Electrical</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
         <p class="reveal"><a href="work.html">See current work and both examples</a></p>
       </div>
     </section>
@@ -255,13 +290,6 @@
                 <li>Active sales and marketing via socials</li>
               </ul>
             </article>
-            <article class="level level--unlock" style="--c:#22d3ee;--w:22%;--r:1.2deg">
-              <p class="level__tag">Unlockable</p>
-              <h3>Free design &amp; build</h3>
-              <p>Free for every Northern Beaches charity, with no limit: I'll design and build your website for free. Free for my first 5 local businesses: the first 5 Northern Beaches businesses get their website designed and built for free. These are two separate offers.</p>
-              <div class="level__bar" aria-hidden="true"><b></b></div>
-              <p>The design and build is free. <strong>Hosting isn't included.</strong> All I ask is an honest review.</p>
-            </article>
           </div>
           <p class="more-link reveal"><a href="pricing.html">See every level, including hosting only</a></p>
       </div>
@@ -270,32 +298,15 @@
     <section class="section cta" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta__band">
-          <h2 id="cta-title">Let's get your business <span class="gradient-text">online.</span></h2>
+          <div>
+            <p class="eyebrow">Contact us</p>
+            <h2 id="cta-title">Let's get your business <span class="gradient-text">online.</span></h2>
+          </div>
           <div class="cta__actions">
-            <a class="btn btn--primary" href="tel:+61403993241" data-tel>Call me <span data-site="phone">+61 403 993 241</span></a>
-            <a class="btn btn--primary" href="contact.html">Send me a message</a>
+            <a class="btn btn--primary" href="contact.html" data-magnetic>Contact us</a>
+            <a class="btn btn--ghost" href="tel:+61403993242" data-tel>Call <span data-site="phone">0403 993 242</span></a>
             <p class="cta__email">Email: <a href="mailto:tomas@buildit.net.au?subject=Website%20enquiry" data-mailto data-site="email">tomas@buildit.net.au</a></p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--quiet" id="offers" aria-labelledby="offers-title">
-      <div class="container">
-        <h2 id="offers-title" class="visually-hidden">Offers</h2>
-        <div class="mega-offers mega-offers--quiet">
-          <article class="mega mega--violet">
-            <p class="mega__big">Free</p>
-            <h3>Every Northern Beaches charity, no limit</h3>
-            <p>Free for every Northern Beaches charity, with no limit: I'll design and build your website for free. The design and build is free. Hosting isn't included. All I ask is an honest review.</p>
-            <a class="btn btn--primary" href="offers.html#charity">Read the charity offer</a>
-          </article>
-          <article class="mega mega--cyan">
-            <p class="mega__big">First 5</p>
-            <h3>First 5 local businesses</h3>
-            <p>Free for my first 5 local businesses: the first 5 Northern Beaches businesses get their website designed and built for free. The design and build is free. Hosting isn't included. All I ask is an honest review.</p>
-            <a class="btn btn--primary" href="offers.html#founding">Read the first 5 businesses offer</a>
-          </article>
         </div>
       </div>
     </section>
@@ -326,7 +337,6 @@
           <li><a href="services.html#social">Social</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="offers.html">Offers</a></li>
           <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="faq.html">FAQ</a></li>
