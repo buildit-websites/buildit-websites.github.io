@@ -1,43 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-AU">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Business name and email: edit SITE in main.js, and the copies here in <head> (title, meta, Open Graph, JSON-LD). -->
-  <title>BuildIt | Websites for local businesses, done for you</title>
-  <meta name="description" content="BuildIt builds secure HTTPS websites for local businesses, sets up your domain and hosting, and looks after it all for you. Email us to get started.">
+  <title>BuildIT | Websites for local businesses, done for you</title>
+  <meta name="description" content="Quality websites for local businesses on Sydney's Northern Beaches. Clear prices from $1,250 ex GST for design and build, your choice of .com or .com.au, and optional hosting and monitoring.">
   <meta name="theme-color" content="#070a16">
+  <link rel="canonical" href="https://buildit-websites.github.io/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="BuildIt | Websites for local businesses, done for you">
-  <meta property="og:description" content="A secure website, your domain, and hosting, all looked after for you.">
+  <meta property="og:site_name" content="BuildIT">
   <meta property="og:locale" content="en_AU">
-  <meta property="og:site_name" content="BuildIt">
+  <meta property="og:title" content="BuildIT | Websites for local businesses, done for you">
+  <meta property="og:description" content="Quality websites for local businesses on Sydney's Northern Beaches. Clear prices from $1,250 ex GST for design and build, your choice of .com or .com.au, and optional hosting and monitoring.">
+  <meta property="og:url" content="https://buildit-websites.github.io/">
+  <meta property="og:image" content="https://buildit-websites.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BuildIT. Your business online. I build it, host it and keep it running. Websites for local businesses, done for you.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BuildIT | Websites for local businesses, done for you">
+  <meta name="twitter:description" content="Quality websites for local businesses on Sydney's Northern Beaches. Clear prices from $1,250 ex GST for design and build, your choice of .com or .com.au, and optional hosting and monitoring.">
+  <meta name="twitter:image" content="https://buildit-websites.github.io/og-image.png">
+  <meta name="twitter:image:alt" content="BuildIT. Your business online. I build it, host it and keep it running. Websites for local businesses, done for you.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
   <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "BuildIt",
-    "email": "finlaysontomas@gmail.com"
+    "@type": "ProfessionalService",
+    "name": "BuildIT",
+    "url": "https://buildit-websites.github.io/",
+    "image": "https://buildit-websites.github.io/og-image.png",
+    "logo": "https://buildit-websites.github.io/favicon.svg",
+    "email": "tomas@buildit.net.au",
+    "telephone": "+61403993242",
+    "areaServed": "Northern Beaches, Sydney",
+    "description": "Quality websites for local businesses on Sydney's Northern Beaches. Clear prices from $1,250 ex GST for design and build, your choice of .com or .com.au, and optional hosting and monitoring."
   }
   </script>
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!CSS.supports('animation-timeline: view()'))document.documentElement.classList.add('reveal-io');}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="trail" aria-hidden="true"></canvas>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-veil"></div>
+    <span class="orb-float" style="--x:8%;--y:22%;--dur:32s"><span class="orb" style="--s:min(52vw,640px);--hue:188;--a:.55"></span></span>
+    <span class="orb-float" style="--x:84%;--y:34%;--dur:36s"><span class="orb" style="--s:min(46vw,560px);--hue:262;--a:.5"></span></span>
+    <span class="orb-float" style="--x:70%;--y:76%;--dur:34s"><span class="orb" style="--s:min(42vw,500px);--hue:328;--a:.4"></span></span>
+    <span class="orb-float" style="--x:14%;--y:82%;--dur:40s"><span class="orb" style="--s:min(38vw,460px);--hue:198;--a:.36"></span></span>
+    <span class="orb-float" style="--x:48%;--y:52%;--dur:29s"><span class="orb" style="--s:min(24vw,280px);--hue:186;--a:.32"></span></span>
+  </div>
 
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a class="logo" href="#top" aria-label="BuildIt, back to top" data-site-label>
+      <a class="logo" href="index.html" data-site-label>
         <span class="logo__mark" aria-hidden="true"></span>
-        <span data-site="name">BuildIt</span>
+        <span data-site="name">BuildIT</span>
       </a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
         <span class="nav__toggle-bars" aria-hidden="true"></span>
@@ -45,117 +66,266 @@
       </button>
       <nav class="nav__menu" id="nav-menu" aria-label="Main">
         <ul>
-          <li><a href="#what-you-get">What you get</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="story.html">Why I'm doing this</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
-        <a class="btn btn--primary btn--sm" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto>Email us</a>
+        <a class="btn btn--primary btn--sm" href="brief.html" data-magnetic>Start your project</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero hero--sell" aria-labelledby="page-title">
+      <canvas id="aurora" class="aurora" aria-hidden="true"></canvas>
       <div class="container hero__inner">
-        <p class="eyebrow reveal">Websites for local businesses</p>
-        <h1 id="hero-title" class="hero__title reveal">
-          Your business online.<br>
-          <span class="gradient-text">We handle everything.</span>
+        <p class="eyebrow reveal">Northern Beaches · Australia-wide · Websites for local businesses</p>
+        <h1 id="page-title" class="hero__title split" aria-label="Your business online. Designed and built.">
+          <span class="split__line" aria-hidden="true"><span>Your business online.</span></span>
+          <span class="split__line" aria-hidden="true"><span>Designed &amp; <span class="gradient-text">built.</span></span></span>
         </h1>
-        <p class="hero__sub reveal">A secure HTTPS website, your own domain, and hosting, built and looked after for you. You run your business. We keep your site running.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto>Email us</a>
-          <a class="btn btn--ghost" href="#how-it-works">How it works</a>
+        <div class="hero__sellrow">
+          <p class="hero__price"><span>Design &amp; build</span><strong>$1,250</strong><small>up to 5 pages · ex GST</small></p>
+          <a class="hero__phone" href="tel:+61403993242" data-tel><small>Call or text</small><span data-site="phone">0403 993 242</span></a>
         </div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="contact.html" data-magnetic>Contact us</a>
+          <a class="btn btn--ghost" href="#work-preview">See the work</a>
+        </div>
+        <p class="hero__sub reveal">I design and build a website for your business, and set up your choice of a .com or a .com.au. Hosting and monitoring are optional. You tell me about your business. I do the rest.</p>
       </div>
     </section>
 
-    <section class="section" id="what-you-get" aria-labelledby="wyg-title">
+    <div class="marquee-clip marquee-clip--biz">
+      <div class="marquee marquee--biz" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Cafés · Trades · Salons · Clinics · Gyms · Retail · Local services ·&nbsp;</span>
+          <span>Cafés · Trades · Salons · Clinics · Gyms · Retail · Local services ·&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="services" aria-labelledby="services-title">
       <div class="container">
         <p class="eyebrow reveal">What you get</p>
-        <h2 id="wyg-title" class="section__title reveal">Everything your website needs, in one place</h2>
-        <div class="cards">
+        <h2 id="services-title" class="section__title reveal">Everything your website needs, in one place</h2>
+        <p class="section__lead reveal">Most small businesses don't want to deal with web designers, domain companies and hosting providers all at once. Design and build come from me. Hosting and monitoring are optional. Built for local businesses on Sydney's Northern Beaches.</p>
+        <div class="cards cards--2">
           <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-            </div>
-            <h3>Website (HTTPS secure)</h3>
-            <p>A modern website for your business, served over HTTPS so visitors see the padlock.</p>
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>A website built for your business</h3>
+            <p>A modern site designed around what you do, with your words, your photos and your colours. It works on phones, tablets and computers, and it is built for HTTPS, so visitors see the padlock once the site is hosted.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-            </div>
-            <h3>Domain</h3>
-            <p>Your own web address, set up and connected to your site.</p>
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+            <h3>Your own domain</h3>
+            <p>A proper web address for your business, with your choice of a .com or a .com.au. I help you pick it, register it and connect it to your site, so customers can find you and you look established from the start.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
-            </div>
-            <h3>Hosting</h3>
-            <p>Your site is hosted for you, so it stays online without you lifting a finger.</p>
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></div>
+            <h3>Hosting, if you want it</h3>
+            <p>Hosting is optional. If you add it, I set up the hosting and the HTTPS certificate, so the site stays up without you logging in to a control panel. Design and build does not include hosting.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <h3>We look after it</h3>
-            <p>We take care of it all, so you never have to deal with the technical side.</p>
+            <div class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h3>I look after it</h3>
+            <p>On Design &amp; build + Hosting &amp; monitoring I keep looking after the site after launch: backups, security updates, one update a month, and help by email when you need a change.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="how-it-works" aria-labelledby="hiw-title">
-      <div class="container">
-        <p class="eyebrow reveal">How it works</p>
-        <h2 id="hiw-title" class="section__title reveal">Four simple steps</h2>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">01</span>
-            <h3>You email us</h3>
-            <p>Tell us about your business and what you need.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">02</span>
-            <h3>We build it</h3>
-            <p>We design and build your website.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">03</span>
-            <h3>We launch it on your domain</h3>
-            <p>Your site goes live at your own address, secured with HTTPS.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">04</span>
-            <h3>We keep it running</h3>
-            <p>Hosting and upkeep are handled by us.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section cta" id="contact" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta__band reveal">
-          <h2 id="cta-title">Ready to get your business online?</h2>
-          <p>Send us an email and we will take it from there.</p>
-          <a class="btn btn--primary btn--lg" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto>Email us</a>
-          <p class="cta__email"><a href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto data-site="email">finlaysontomas@gmail.com</a></p>
+    <section class="section pinned" id="how" data-pinned aria-labelledby="how-title">
+      <div class="pinned__sticky">
+        <div class="container pinned__grid">
+          <div class="pinned__intro">
+            <p class="eyebrow">How it works</p>
+            <h2 id="how-title" class="section__title">Four simple steps</h2>
+            <p class="more-link"><a href="how-it-works.html">Read the process</a></p>
+            <div class="pinned__rail" aria-hidden="true"><span></span></div>
+          </div>
+          <ol class="pinned__steps">
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">01</p>
+              <h3>You get in touch</h3>
+              <p>Tell me about your business, what you'd like customers to know, and any sites you like the look of. If you have a logo or photos, send them too. If not, that's fine.</p>
+            </li>
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">02</p>
+              <h3>I design and build it</h3>
+              <p>I put together your site and send you a preview link. You tell me what to change. The price includes 3 revisions.</p>
+            </li>
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">03</p>
+              <h3>I launch it on your domain</h3>
+              <p>Once you give the go-ahead, and if hosting is part of the job, the site goes live at your web address over HTTPS. If you only want design and build, I hand the site over so you can host it where you choose.</p>
+            </li>
+            <li class="pinned__step" data-step>
+              <p class="pinned__num">04</p>
+              <h3>I keep it running, if you add hosting</h3>
+              <p>Hosting is optional. If you add Hosting &amp; monitoring, I keep the site online. On design and build alone, hosting is not included, and the site is handed over for you to host.</p>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
+
+    <section class="section" id="work-preview" aria-labelledby="work-title">
+      <div class="container">
+        <p class="eyebrow reveal">My work</p>
+        <h2 id="work-title" class="section__title reveal">See what your site could look like</h2>
+        <h3 class="work__subtitle reveal">Current work</h3>
+        <p class="section__lead work__lead reveal">Live websites for real businesses. I built Perfect Jobs &amp; Adventures. BuildIT is backed by the experience of Nick Finlayson, founder and CEO of Innovo, who built the Lux-Lashes and Innovo sites.</p>
+        <div class="work">
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">perfectjobsandadventures.github.io</span></div>
+              <div class="frame__view"><img src="assets/work/perfectjobs.png" width="1440" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Perfect Jobs &amp; Adventures <span class="work__type">Live site</span></h3>
+              <p>I built this site for a Sydney business that helps 18–35s settle in and see Australia, with arrival packages from $75.</p>
+              <a class="work__link" href="https://perfectjobsandadventures.github.io/" target="_blank" rel="noopener">Visit site<span class="visually-hidden">: Perfect Jobs &amp; Adventures (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">lux-lashes.com</span></div>
+              <div class="frame__view"><img src="work/lux-lashes-tall.webp" width="720" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Lux-Lashes <span class="work__type">Mobile lash artist</span></h3>
+              <p>Private, bespoke lash appointments delivered at home on Sydney&rsquo;s Northern Beaches.</p>
+              <a class="work__link" href="https://www.lux-lashes.com" target="_blank" rel="noopener">Visit site<span class="visually-hidden">: Lux-Lashes (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">innovotech.com</span></div>
+              <div class="frame__view"><img src="work/innovo-tall.webp" width="720" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Innovo <span class="work__type">Enterprise AI &amp; automation</span></h3>
+              <p>Agentic orchestration for enterprise: AI agents, rules and people in one governed process.</p>
+              <a class="work__link" href="https://www.innovotech.com" target="_blank" rel="noopener">Visit site<span class="visually-hidden">: Innovo (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <h3 class="work__subtitle work__subtitle--next reveal">Example designs</h3>
+        <p class="section__lead work__lead reveal">Example sites for fictional businesses: <a href="examples/cafe/">Ember &amp; Oat</a>, a cafe, and <a href="examples/electrician/">Ironbark Electrical</a>, an electrician. Every site I build is designed for you rather than copied from a template.</p>
+        <div class="work">
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ember-and-oat.example</span></div>
+              <div class="frame__view"><img src="examples/cafe/preview.webp" width="720" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Ember &amp; Oat <span class="work__type">Cafe &amp; bakery</span></h3>
+              <p>A warm, editorial look for a neighbourhood cafe, with a menu, opening hours, a photo gallery and a spot for catering enquiries.</p>
+              <a class="work__link" href="examples/cafe/">View live example<span class="visually-hidden">: Ember &amp; Oat cafe</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="card work__item reveal">
+            <div class="frame" aria-hidden="true">
+              <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ironbark-electrical.example</span></div>
+              <div class="frame__view"><img src="examples/electrician/preview.webp" width="720" height="1800" alt="" loading="lazy"></div>
+            </div>
+            <div class="work__body">
+              <h3>Ironbark Electrical <span class="work__type">Electrician</span></h3>
+              <p>A bold, high-contrast site for a local tradie, built to get the phone ringing, with services, a service area and a quote request form.</p>
+              <a class="work__link" href="examples/electrician/">View live example<span class="visually-hidden">: Ironbark Electrical</span> <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="reveal"><a href="work.html">See current work and both examples</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="prices" aria-labelledby="prices-title">
+      <div class="container">
+          <p class="eyebrow reveal">Pricing · all prices ex GST</p>
+          <h2 id="prices-title" class="why-title reveal">Pick your level.</h2>
+          <p class="section__lead reveal">Design and build is $1,250, ex GST: up to 5 pages and 3 revisions. Design and build plus hosting and monitoring is $1,800 up front, then $99 a month, ex GST: up to 8 pages, basic SEO set-up, hosting and monitoring, and 3 revisions. Extra pages are $150 per page, ex GST, on either plan. Hosting on its own still has no figure. That price says Placeholder.</p>
+          <div class="levels reveal">
+            <article class="level" style="--c:#22d3ee;--w:55%;--r:-1.2deg">
+              <p class="level__tag">Level 1</p>
+              <h3>Design &amp; build</h3>
+              <p class="level__amt">$1,250</p>
+              <p>one-time, ex GST</p>
+              <div class="level__bar" aria-hidden="true"><b></b></div>
+              <ul>
+                <li>Up to 5 pages</li>
+                <li>3 revisions</li>
+                <li>Handed over for you to host</li>
+              </ul>
+            </article>
+            <article class="level" style="--c:#a78bfa;--w:100%;--r:1deg">
+              <p class="level__tag">Level 2</p>
+              <h3>Design &amp; build + Hosting &amp; monitoring</h3>
+              <p class="level__amt">$1,800</p>
+              <p>up front, then $99/month, ex GST</p>
+              <div class="level__bar" aria-hidden="true"><b></b></div>
+              <ul>
+                <li>Up to 8 pages</li>
+                <li>Basic SEO set-up, hosting and monitoring</li>
+                <li>3 revisions</li>
+              </ul>
+            </article>
+          </div>
+          <p class="more-link reveal"><a href="pricing.html">See every level, including hosting only</a></p>
+      </div>
+    </section>
+
+    <section class="section cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta__band">
+          <div>
+            <p class="eyebrow">Contact us</p>
+            <h2 id="cta-title">Let's get your business <span class="gradient-text">online.</span></h2>
+          </div>
+          <div class="cta__actions">
+            <a class="btn btn--primary" href="contact.html" data-magnetic>Contact us</a>
+            <a class="btn btn--ghost" href="tel:+61403993242" data-tel>Call <span data-site="phone">0403 993 242</span></a>
+            <p class="cta__email">Email: <a href="mailto:tomas@buildit.net.au?subject=Website%20enquiry" data-mailto data-site="email">tomas@buildit.net.au</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story--footer" id="story" aria-labelledby="story-title">
+      <div class="container">
+        <p class="eyebrow reveal">Why I'm doing this</p>
+        <h2 id="story-title" class="why-title reveal">Not long ago I was making choices I'm not proud of. I'm changing that, right now.</h2>
+        <p class="section__lead reveal">This business is how I'm doing it, one honest job at a time.</p>
+        <p class="more-link reveal"><a href="story.html">Read why I'm doing this</a></p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>&copy; <span data-year></span> <span data-site="name">BuildIt</span></p>
+      <div class="footer__brand">
+        <p>&copy; <span data-year></span> <span data-site="name">BuildIT</span></p>
+        <p class="footer__local">Websites for local businesses on Sydney's Northern Beaches.</p>
+        <p class="footer__parent">BuildIT is backed by Nick Finlayson, and the work is contracted through <a href="https://innovotech.com" target="_blank" rel="noopener">Innovo<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+      </div>
       <nav aria-label="Footer">
         <ul>
-          <li><a href="#what-you-get">What you get</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry" data-mailto>Email us</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="story.html">Why I'm doing this</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>

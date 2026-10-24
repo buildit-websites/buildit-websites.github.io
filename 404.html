@@ -1,28 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-AU">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page not found | BuildIt</title>
+  <title>Page not found | BuildIT</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#070a16">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link id="site-icon" rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="/styles.css">
+  <link id="site-css" rel="stylesheet" href="/styles.css">
+  <script>
+    // GitHub Pages serves this file at the missing URL. Root-absolute assets
+    // stay on the site root when that URL is nested (for example /examples/nope/x).
+    // The retired project path still gets its own prefix.
+    (function () {
+      var marker = "/buildit-nick-version/";
+      var path = location.pathname;
+      var atKnownFile = /\/[^/]+\.html$/.test(path) || path.endsWith("/");
+      var jsSrc = "/main.js";
+      if (path.indexOf(marker) === 0 && !atKnownFile) {
+        document.getElementById("site-css").href = marker + "styles.css";
+        document.getElementById("site-icon").href = marker + "favicon.svg";
+        jsSrc = marker + "main.js";
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-root]").forEach(function (a) {
+            a.setAttribute("href", marker + a.getAttribute("href").replace(/^\//, ""));
+          });
+        });
+      }
+      var js = document.createElement("script");
+      js.src = jsSrc;
+      js.defer = true;
+      document.head.appendChild(js);
+    })();
+  </script>
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-veil"></div>
+    <span class="orb-float" style="--x:8%;--y:22%;--dur:32s"><span class="orb" style="--s:min(52vw,640px);--hue:188;--a:.55"></span></span>
+    <span class="orb-float" style="--x:84%;--y:34%;--dur:36s"><span class="orb" style="--s:min(46vw,560px);--hue:262;--a:.5"></span></span>
+    <span class="orb-float" style="--x:70%;--y:76%;--dur:34s"><span class="orb" style="--s:min(42vw,500px);--hue:328;--a:.4"></span></span>
+    <span class="orb-float" style="--x:14%;--y:82%;--dur:40s"><span class="orb" style="--s:min(38vw,460px);--hue:198;--a:.36"></span></span>
+    <span class="orb-float" style="--x:48%;--y:52%;--dur:29s"><span class="orb" style="--s:min(24vw,280px);--hue:186;--a:.32"></span></span>
+  </div>
   <main id="main" class="hero">
     <div class="container hero__inner">
       <p class="eyebrow">Error 404</p>
       <h1 class="hero__title">This page <span class="gradient-text">does not exist.</span></h1>
       <p class="hero__sub">The link may be broken or the page may have moved.</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/">Back to home</a>
-        <a class="btn btn--ghost" href="mailto:finlaysontomas@gmail.com?subject=Website%20enquiry">Email us</a>
+        <a class="btn btn--primary" href="/index.html" data-root>Back to home</a>
+        <a class="btn btn--ghost" href="mailto:tomas@buildit.net.au?subject=Website%20enquiry">Email me</a>
       </div>
     </div>
   </main>
