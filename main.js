@@ -7,8 +7,8 @@ const SITE = {
   name: 'BuildIT',
   email: 'tomas@buildit.net.au',
   emailSubject: 'Website enquiry',
-  phone: '+61 403 993 241',
-  phoneIntl: '+61403993241',
+  phone: '0403 993 242',
+  phoneIntl: '+61403993242',
 };
 
 (() => {
@@ -42,7 +42,7 @@ const SITE = {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
     });
-    window.matchMedia('(min-width: 1041px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+    window.matchMedia('(min-width: 1181px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
     // Close the mobile menu when keyboard focus leaves the header, so focus never lands behind the open menu.
     const header = toggle.closest('header');
     header.addEventListener('focusout', (e) => {
@@ -55,15 +55,14 @@ const SITE = {
   if (contactForm) {
     const planInput = contactForm.querySelector('[name="plan"]');
     const wantedPlan = new URLSearchParams(window.location.search).get('plan');
-    const knownPlans = ['design', 'design-hosting', 'hosting', 'social', 'charity', 'founding', 'unsure'];
+    const knownPlans = ['design', 'design-hosting', 'hosting', 'social', 'unsure'];
     if (planInput && knownPlans.includes(wantedPlan)) planInput.value = wantedPlan;
   }
 
-  /* ---------- Scroll reveal ---------- */
-  const reveals = document.querySelectorAll('.reveal');
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    reveals.forEach((el) => el.classList.add('is-visible'));
-  } else {
+  /* ---------- Scroll reveal: view() timeline when the browser has it, otherwise IntersectionObserver ---------- */
+  if (!('IntersectionObserver' in window)) document.documentElement.classList.remove('reveal-io');
+  if (document.documentElement.classList.contains('reveal-io')) {
+    const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
@@ -75,15 +74,147 @@ const SITE = {
     });
   }
 
+  /* ---------- Magnetic buttons: three home CTAs, fine pointer only ---------- */
+  if (!reduceMotion && finePointer) {
+    document.querySelectorAll('[data-magnetic]').forEach((el) => {
+      let origin = null;
+      el.addEventListener('pointerenter', (e) => {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        const r = el.getBoundingClientRect();
+        origin = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      });
+      el.addEventListener('pointermove', (e) => {
+        if (!origin || (e.pointerType && e.pointerType !== 'mouse')) return;
+        const dx = Math.max(-16, Math.min(16, (e.clientX - origin.x) * 0.35));
+        const dy = Math.max(-14, Math.min(14, (e.clientY - origin.y) * 0.35));
+        el.style.transform = `translate(${dx}px, ${dy}px)`;
+      });
+      el.addEventListener('pointerleave', () => {
+        origin = null;
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- Pinned steps: progress line on desktop, a plain stack otherwise ---------- */
+  if (!reduceMotion) {
+    const pinQuery = window.matchMedia('(min-width: 960px)');
+    document.querySelectorAll('[data-pinned]').forEach((section) => {
+      const rail = section.querySelector('.pinned__rail span');
+      const steps = [...section.querySelectorAll('[data-step]')];
+      const update = () => {
+        if (!pinQuery.matches || !steps.length) {
+          if (rail) rail.style.setProperty('--p', '0');
+          steps.forEach((step) => step.classList.remove('is-current'));
+          return;
+        }
+        const rect = section.getBoundingClientRect();
+        const total = Math.max(section.offsetHeight - window.innerHeight, 1);
+        const scrolled = Math.min(Math.max(-rect.top, 0), total);
+        const p = scrolled / total;
+        if (rail) rail.style.setProperty('--p', p.toFixed(4));
+        const index = Math.min(steps.length - 1, Math.floor(p * steps.length));
+        steps.forEach((step, i) => step.classList.toggle('is-current', i === index));
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      pinQuery.addEventListener('change', update);
+      update();
+    });
+  }
+
+  /* ---------- Hero aurora: one canvas, pauses off-screen, one still frame if motion is reduced ---------- */
+  (() => {
+    const canvas = document.getElementById('aurora');
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false });
+    if (!gl) return;
+    const vert = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.0,1.0);}';
+    const frag = [
+      'precision mediump float;',
+      'uniform vec2 uRes;uniform float uTime;',
+      'void main(){',
+      'vec2 uv=gl_FragCoord.xy/uRes;',
+      'float t=uTime;',
+      'float w=sin(uv.x*3.1+t)*0.18+sin(uv.y*2.2-t*0.7)*0.12;',
+      'float w2=sin((uv.x+uv.y)*4.0-t*1.2);',
+      'vec3 cyan=vec3(0.13,0.83,0.93);',
+      'vec3 violet=vec3(0.65,0.55,0.98);',
+      'vec3 magenta=vec3(0.96,0.45,0.71);',
+      'vec3 col=cyan*smoothstep(0.15,0.95,uv.y+w)*0.62;',
+      'col+=violet*(0.35+0.25*w2)*(1.0-uv.x)*0.55;',
+      'col+=magenta*pow(1.0-uv.y,2.0)*0.22;',
+      'gl_FragColor=vec4(col,0.9);',
+      '}'
+    ].join('');
+    const compile = (type, src) => {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, src);
+      gl.compileShader(shader);
+      return shader;
+    };
+    const program = gl.createProgram();
+    gl.attachShader(program, compile(gl.VERTEX_SHADER, vert));
+    gl.attachShader(program, compile(gl.FRAGMENT_SHADER, frag));
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(program, 'a');
+    const uRes = gl.getUniformLocation(program, 'uRes');
+    const uTime = gl.getUniformLocation(program, 'uTime');
+    const resize = () => {
+      const w = Math.max(canvas.clientWidth, 1);
+      const h = Math.max(canvas.clientHeight, 1);
+      canvas.width = Math.round(w * 0.5);
+      canvas.height = Math.round(h * 0.5);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    const draw = (time) => {
+      resize();
+      gl.useProgram(program);
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform1f(uTime, time * 0.001);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+    };
+    if (reduceMotion) { draw(420); return; }
+    let running = true;
+    let raf = 0;
+    let last = 0;
+    const loop = (now) => {
+      raf = 0;
+      if (!running) return;
+      if (now - last > 33) { draw(now); last = now; }
+      raf = requestAnimationFrame(loop);
+    };
+    const sync = () => {
+      const onScreen = canvas.getBoundingClientRect().bottom > 0 && canvas.getBoundingClientRect().top < window.innerHeight;
+      running = onScreen && !document.hidden;
+      if (running && !raf) raf = requestAnimationFrame(loop);
+    };
+    if ('IntersectionObserver' in window) {
+      const watch = new IntersectionObserver(() => sync(), { threshold: 0.05 });
+      watch.observe(canvas);
+    }
+    document.addEventListener('visibilitychange', sync);
+    window.addEventListener('resize', sync);
+    sync();
+  })();
+
   /* ---------- Card tilt + glow ---------- */
   if (!reduceMotion && finePointer) {
-    document.querySelectorAll('.card').forEach((card) => {
+    document.querySelectorAll('.work__item').forEach((card) => {
       card.addEventListener('pointermove', (e) => {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
         const r = card.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width;
         const y = (e.clientY - r.top) / r.height;
-        card.style.setProperty('--ry', `${(x - 0.5) * 10}deg`);
-        card.style.setProperty('--rx', `${(0.5 - y) * 10}deg`);
+        card.style.setProperty('--ry', `${(x - 0.5) * 6}deg`);
+        card.style.setProperty('--rx', `${(0.5 - y) * 6}deg`);
         card.style.setProperty('--mx', `${x * 100}%`);
         card.style.setProperty('--my', `${y * 100}%`);
       });
@@ -101,7 +232,7 @@ const SITE = {
   if (!ctx) return;
 
   // Pointer over any of these = "not background", so no trail.
-  const CONTENT = 'a, button, input, textarea, select, label, h1, h2, h3, h4, p, li, td, th, summary, details, table, form, .card, .step, .why__item, .cta__band, .eyebrow, .logo, .nav, .placeholder, .notes article, .hosting-note, .val, .mega, .level, .sticker, .marquee, .social-band, .backed, .trust-line, .form-card';
+  const CONTENT = 'a, button, input, textarea, select, label, h1, h2, h3, h4, p, li, td, th, summary, details, table, form, .card, .step, .why__item, .cta__band, .eyebrow, .logo, .nav, .placeholder, .notes article, .hosting-note, .val, .mega, .level, .sticker, .marquee, .social-band, .backed, .trust-line, .form-card, .hero__sellrow, .pinned__step, .pinned__intro';
 
   let w = 0, h = 0, dpr = 1;
   const resize = () => {
