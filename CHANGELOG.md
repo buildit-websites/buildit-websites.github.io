@@ -1,5 +1,10 @@
 # BuildIT remodel — local working copy
 
+## Offers
+
+- Social media marketing is off the site: the Level 3 card, the Services section, the comparison column, the nav link, and the contact plan choice.
+- Level 1 stays Design & build at $1,250. Level 2 stays Design & build + Hosting & monitoring at $1,800 up front, then $99 a month.
+
 ## Premium atmosphere pass
 
 - Removed the square grid, the film-grain overlay, and the cursor trail.
