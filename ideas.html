@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ideas from Dad | BuildIT</title>
+  <meta name="description" content="Notes from Nick to Tomas about what this version of the BuildIT site adds, and why.">
+  <meta name="theme-color" content="#070a16">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://buildit-websites.github.io/ideas.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BuildIT">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="Ideas from Dad | BuildIT">
+  <meta property="og:description" content="Notes from Nick to Tomas about what this version of the BuildIT site adds, and why.">
+  <meta property="og:url" content="https://buildit-websites.github.io/ideas.html">
+  <meta property="og:image" content="https://buildit-websites.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BuildIT. Your business online. I build it, host it and keep it running. Websites for local businesses, done for you.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ideas from Dad | BuildIT">
+  <meta name="twitter:description" content="Notes from Nick to Tomas about what this version of the BuildIT site adds, and why.">
+  <meta name="twitter:image" content="https://buildit-websites.github.io/og-image.png">
+  <meta name="twitter:image:alt" content="BuildIT. Your business online. I build it, host it and keep it running. Websites for local businesses, done for you.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="trail" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" data-site-label>
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span data-site="name">BuildIT</span>
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Why I'm doing this</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html#social">Social</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="brief.html">Start your project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero page-hero" aria-labelledby="page-title">
+      <div class="container hero__inner">
+        <p class="eyebrow reveal">Notes for Tomas</p>
+        <h1 id="page-title" class="hero__title reveal">Ideas from <span class="gradient-text">Dad</span></h1>
+        <p class="hero__sub reveal">This page is for you, not for customers. It lists what this version adds to your BuildIT site, and why. The same notes are in the README. Take the bits you like.</p>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="ideas-title">
+      <div class="container">
+        <h2 id="ideas-title" class="section__title reveal">What changed, and why</h2>
+        <div class="notes">
+          <article class="reveal">
+            <h3>Tabs, one job per page</h3>
+            <p>Home, Why I'm doing this, Services, Work, Pricing, Offers, How it works, About, FAQ and Contact. Your live site is one long page, which is a good start. Separate pages let someone open Pricing or Work directly, and they show the shape of the business at a glance. Why I'm doing this is its own tab, placed next to Home. Social media marketing is not its own tab. It lives on Services and Pricing, which are already in the menu.</p>
+          </article>
+          <article class="reveal">
+            <h3>Your copy stays</h3>
+            <p>BuildIT branding, Ember &amp; Oat, Ironbark Electrical, Lux-Lashes (lux-lashes.com), and Innovo (innovotech.com) are yours. The email on the site is now <strong>tomas@buildit.net.au</strong>. The phone number on every page, the contact buttons, and the search listing is <strong>+61 403 993 241</strong>. The dollar amounts are the same: $1,250, $1,800 up front, and $99 a month. Hosting is no longer bundled into the $1,250. The plan names changed. See the notes at the bottom.</p>
+            <p>Perfect Jobs &amp; Adventures (<a href="https://perfectjobsandadventures.github.io/">perfectjobsandadventures.github.io</a>) is a real site you built. It is first under Current work on the home page and the Work page, tagged Live site, ahead of the example designs. The card image is a screenshot of the live homepage, saved at <code>assets/work/perfectjobs.png</code>. The link opens in a new tab. The one-line description is what the site is. No stats, results or testimonials were added.</p>
+          </article>
+          <article class="reveal">
+            <h3>Pricing comparison table</h3>
+            <p>The table now has four columns: Design &amp; build, Design &amp; build + Hosting &amp; monitoring, Hosting &amp; monitoring only, and Social media marketing. Included and not included are written in words. Prices that are not set say Placeholder. On a phone, swipe sideways. The first column stays put.</p>
+          </article>
+          <article class="reveal">
+            <h3>About you, and the Northern Beaches</h3>
+            <p>Local customers want to know who they are emailing. The About page is in your voice: you name yourself, you say BuildIT is your studio, and you say why you are doing this. It stays on Sydney's Northern Beaches. I didn't invent suburbs, a work history, client numbers or awards.</p>
+          </article>
+          <article class="reveal">
+            <h3>Contact and brief forms email you directly</h3>
+            <p>Both forms post to FormSubmit, which emails <strong>tomas@buildit.net.au</strong>. There is no Netlify Forms step and no dashboard to open. The contact subject is "BuildIT website enquiry". The brief subject is "BuildIT design brief". After a send, the page goes to thanks.html. The mailto links stay on the pages as a fallback. The first real submission asks FormSubmit to send you one activation email. A link such as the charity button still adds the plan, without a plan menu on the form.</p>
+          </article>
+          <article class="reveal">
+            <h3>A next step on every page</h3>
+            <p>Each page ends with contact, call, or both. People decide on the page they are already reading. They shouldn't have to hunt for a button.</p>
+          </article>
+          <article class="reveal">
+            <h3>Mobile menu and contrast</h3>
+            <p>Why I'm doing this and Offers are extra tabs. From 1040px wide and down, they sit in the menu button with the others, and the open menu scrolls. Between 1041px and 1420px the desktop links use a slightly tighter gap so the longer tab still fits at 1280px. Your dark colours already clear WCAG AA for normal text. Unset prices are the word Placeholder, not colour alone. The table still says "Included" and "Not included" in words.</p>
+          </article>
+          <article class="reveal">
+            <h3>Share preview image</h3>
+            <p>Every public page has Open Graph and Twitter card tags pointing at your existing og-image.png, with width, height and alt text. Links in messages and social apps then show the BuildIT card instead of a blank preview.</p>
+          </article>
+          <article class="reveal">
+            <h3>Nothing made up</h3>
+            <p>No testimonials, review scores, "trusted by" counts or awards. The two prices that were never given still say Placeholder. The why-copy is a draft in your voice, from the reasons below. It is not a made-up life story.</p>
+          </article>
+          <article class="reveal">
+            <h3>All In look, and the cursor trail</h3>
+            <p>The public pages now use the playful All In look: huge type, a tilted magenta word in the headlines, a round cyan price sticker on the home page, a rotating strip of your values, tilted value cards, and big offer cards. Pricing is shown as levels in that same look. Level 1 is design and build at $1,250. Level 2 is design and build plus hosting and monitoring at $1,800 up front, then $99 a month. Level 3 is social media marketing, and the price says Ask me. Social is in the menu, on the home page, on Services, and on Pricing. The cursor trail and the scroll-in reveal are the same ones from your live site. The trail is off when someone asks for reduced motion. A mouse move draws it on the empty background. A touch pointer does not. A finger drag still draws while it is over the background, which is how the live site behaves. The trail stays off text, cards, the sticker, the value cards, the offer cards, and the levels. Contact now opens like Home: a big first-person headline, the values strip, tilted cards for the phone, email and contract, a compact form, the free and social offers, and the Innovo card. The form card stays about 520px wide. The other pages use the same big headline and values strip.</p>
+          </article>
+          <article class="reveal">
+            <h3>Why I'm doing this</h3>
+            <p>The home page, near the top, and its own nav tab now say why you are doing this, in the first person, as something you are doing now. The draft says: not long ago you were making choices you are not proud of, and you hurt people. You are changing that, right now. This business is how you are doing it, one honest job at a time. The charity offer and the first-5 business offer are two separate offers. The values are what you are doing now, every day: honesty (the real price and timeline, no surprises), owning it (if you get something wrong, you fix it), giving back, earning trust, and showing up (you do what you say, when you say). No events, numbers or quotes were added. The same lines are on About, Offers, Pricing, Contact, FAQ and How it works, wherever those offers are explained.</p>
+            <p><strong>Edit this copy into your own words.</strong></p>
+          </article>
+          <article class="reveal">
+            <h3>Charity offer</h3>
+            <p>The public line is: "Free for every Northern Beaches charity, with no limit: I'll design and build your website for free." Then: "The design and build is free. Hosting isn't included. All I ask is an honest review." There is no page charge and no revision charge, and the free-offer copy names no price. This offer is not capped at 5. The 5 applies only to local businesses. It is on Offers, Home, Pricing, Services, the brief, Contact, and the FAQ. The contact form can open with "Charity" already chosen.</p>
+          </article>
+          <article class="reveal">
+            <h3>Founding clients</h3>
+            <p>The public line is: "Free for my first 5 local businesses: the first 5 Northern Beaches businesses get their website designed and built for free." The limit of 5 is only for local businesses. It is not a cap on charities, and it is not a count of businesses already signed. No "spots left" number was added. The design and build is free. Hosting isn't included. All you ask is an honest review. There is no obligation. No review text was written, because none has been given. Paid prices stay on the paid plans.</p>
+          </article>
+          <article class="reveal">
+            <h3>Hosting is optional</h3>
+            <p>Design &amp; build stays <strong>$1,250</strong> one-time, and hosting is not in it. Domain setup stayed on that price, because your live site already included the domain at $1,250. Move the domain if you want it elsewhere. Design &amp; build + Hosting &amp; monitoring stays <strong>$1,800</strong> up front, then <strong>$99 a month</strong>. The extras that were on Website + Care at that price are still listed there: contact button, Google setup, Maps, speed, accessibility, visitor stats, monthly update, backups, security updates and email support. They were not renamed into "monitoring" without being listed. Hosting &amp; monitoring only has no price. The card and the table say <strong>Placeholder</strong>. Backups, security updates and email support on hosting-only also say Placeholder, because those were part of the $1,800 plan, not a separate hosting-only list.</p>
+          </article>
+          <article class="reveal">
+            <h3>Social media marketing</h3>
+            <p>A new service: post building, content creation, and active sales and marketing via socials. It is on Services, on Pricing, on the home page as a price card, and in the contact form. There is no separate tab. The price says <strong>Placeholder</strong>. Networks and how many posts are not set. No results, follower counts or ad spend were invented. The public pages do not ask you to fill those in. Set the price when you have one.</p>
+          </article>
+          <article class="reveal">
+            <h3>Page limits</h3>
+            <p>Design and build at $1,250, ex GST, is up to 5 pages and 3 revisions. Design and build plus hosting and monitoring at $1,800 up front, then $99 a month, ex GST, is up to 8 pages, a basic SEO set-up (titles, descriptions, a Google Business link, and analytics), hosting and monitoring, and 3 revisions. Extra pages are $150 per page, ex GST, on either paid plan. That is on the home price cards, the Pricing levels, the paid plan cards, the comparison table, Services, and the paid FAQ answers. Those figures are not in the free-offer text. The FAQ question is "What if I need more pages?" The old line about tweaking until someone is happy now says 3 revisions.</p>
+          </article>
+          <article class="reveal">
+            <h3>One assurance line</h3>
+            <p>There was no contracts page and no contract file to delete. The contract sections, the contact card, the price-side contract lines, and the FAQ question "Who is the contract with?" are gone. The only line left is in the footer: "BuildIT is backed by Nick Finlayson, and the work is contracted through Innovo." Innovo still links to innovotech.com. The Work page still says you built Perfect Jobs &amp; Adventures, and that Nick Finlayson built the Lux-Lashes and Innovo sites.</p>
+          </article>
+          <article class="reveal">
+            <h3>Email</h3>
+            <p>The address is <strong>tomas@buildit.net.au</strong>. It is on the contact blocks, the email line at the bottom of each page, the mailto links, the FormSubmit form action, the example sites, and the search listing. The public canonical URL is still the GitHub Pages address. No CNAME is set. The live site is buildit.net.au.</p>
+          </article>
+          <article class="reveal">
+            <h3>External site links</h3>
+            <p>Every link to innovotech.com and lux-lashes.com opens in a new tab, including the Innovo link in the footer on every page. The Work cards for Lux-Lashes and Innovo already did. No script opens those sites.</p>
+          </article>
+          <article class="reveal">
+            <h3>Prices are ex GST</h3>
+            <p>Every price on the Pricing page is ex GST. It is in the hero, above the four offers, on the comparison headings, in the table caption, and in the FAQ. The home price section says the same, so those figures are not read as GST-inclusive. No GST amount was calculated on top. The $1,250, $1,800 and $99 figures are unchanged.</p>
+          </article>
+        </div>
+        <p class="reveal more-link"><a href="index.html">Back to the home page</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <p>&copy; <span data-year></span> <span data-site="name">BuildIT</span></p>
+        <p class="footer__local">Websites for local businesses on Sydney's Northern Beaches.</p>
+        <p class="footer__parent">BuildIT is backed by Nick Finlayson, and the work is contracted through <a href="https://innovotech.com" target="_blank" rel="noopener">Innovo<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Why I'm doing this</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html#social">Social</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

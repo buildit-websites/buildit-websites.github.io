@@ -1,14 +1,14 @@
 /* ============================================================
    Site details: edit these in ONE place.
-   (Also update the copies in index.html <head>: title, meta,
+   (Also update the copies in each page <head>: title, meta,
    Open Graph and JSON-LD, which search engines read without JS.)
    ============================================================ */
 const SITE = {
   name: 'BuildIT',
-  email: 'finlaysontomas@gmail.com',
+  email: 'tomas@buildit.net.au',
   emailSubject: 'Website enquiry',
-  phone: '0403 993 242',
-  phoneIntl: '+61403993242',
+  phone: '+61 403 993 241',
+  phoneIntl: '+61403993241',
 };
 
 (() => {
@@ -26,7 +26,7 @@ const SITE = {
     const subject = el.dataset.subject || SITE.emailSubject;
     el.setAttribute('href', `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`);
   });
-  document.querySelectorAll('[data-site-label]').forEach((el) => { el.setAttribute('aria-label', `${SITE.name}, back to top`); });
+  document.querySelectorAll('[data-site-label]').forEach((el) => { el.setAttribute('aria-label', `${SITE.name}, home`); });
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
   /* ---------- Mobile nav ---------- */
@@ -42,12 +42,21 @@ const SITE = {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); }
     });
-    window.matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+    window.matchMedia('(min-width: 1041px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
     // Close the mobile menu when keyboard focus leaves the header, so focus never lands behind the open menu.
     const header = toggle.closest('header');
     header.addEventListener('focusout', (e) => {
       if (toggle.getAttribute('aria-expanded') === 'true' && !header.contains(e.relatedTarget)) setOpen(false);
     });
+  }
+
+  /* ---------- Contact form posts to FormSubmit. Only the plan link is filled here. ---------- */
+  const contactForm = document.querySelector('[data-contact-form]');
+  if (contactForm) {
+    const planInput = contactForm.querySelector('[name="plan"]');
+    const wantedPlan = new URLSearchParams(window.location.search).get('plan');
+    const knownPlans = ['design', 'design-hosting', 'hosting', 'social', 'charity', 'founding', 'unsure'];
+    if (planInput && knownPlans.includes(wantedPlan)) planInput.value = wantedPlan;
   }
 
   /* ---------- Scroll reveal ---------- */
@@ -69,13 +78,12 @@ const SITE = {
   /* ---------- Card tilt + glow ---------- */
   if (!reduceMotion && finePointer) {
     document.querySelectorAll('.card').forEach((card) => {
-      const tilt = card.classList.contains('work__item') ? 8 : 10; // full range in deg: work cards tilt at most 4deg each way
       card.addEventListener('pointermove', (e) => {
         const r = card.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width;
         const y = (e.clientY - r.top) / r.height;
-        card.style.setProperty('--ry', `${(x - 0.5) * tilt}deg`);
-        card.style.setProperty('--rx', `${(0.5 - y) * tilt}deg`);
+        card.style.setProperty('--ry', `${(x - 0.5) * 10}deg`);
+        card.style.setProperty('--rx', `${(0.5 - y) * 10}deg`);
         card.style.setProperty('--mx', `${x * 100}%`);
         card.style.setProperty('--my', `${y * 100}%`);
       });
@@ -86,159 +94,6 @@ const SITE = {
     });
   }
 
-  /* ---------- Hero intro: headline slides up line by line, then the rest fades in ---------- */
-  const hero = document.querySelector('.hero');
-  const heroTitle = hero && hero.querySelector('[data-split]');
-  if (hero && heroTitle) {
-    const source = heroTitle.innerHTML;
-    heroTitle.setAttribute('aria-label', heroTitle.textContent.replace(/\s+/g, ' ').trim());
-    // Split into the lines the browser actually renders, keeping the gradient span's class per line.
-    const split = () => {
-      heroTitle.innerHTML = source;
-      const words = [];
-      const walk = (node, cls) => node.childNodes.forEach((n) => {
-        if (n.nodeType === 3) n.textContent.split(/\s+/).filter(Boolean).forEach((w) => words.push({ w, cls }));
-        else if (n.nodeName === 'BR') words.push({ br: true });
-        else if (n.nodeType === 1) walk(n, n.className || cls);
-      });
-      walk(heroTitle, '');
-      heroTitle.textContent = '';
-      const probes = words.map((o) => {
-        if (o.br) { heroTitle.append(document.createElement('br')); return o; }
-        const s = document.createElement('span'); s.textContent = o.w; heroTitle.append(s, ' ');
-        return { ...o, el: s };
-      });
-      const lines = []; let top = null;
-      probes.forEach((p) => {
-        if (p.br) { top = null; return; }
-        if (p.el.offsetTop !== top) { lines.push([]); top = p.el.offsetTop; }
-        lines[lines.length - 1].push(p);
-      });
-      heroTitle.textContent = '';
-      lines.forEach((line, i) => {
-        const outer = document.createElement('span'); outer.className = 'hero__line'; outer.setAttribute('aria-hidden', 'true');
-        const inner = document.createElement('span'); inner.className = 'hero__line-in'; inner.style.setProperty('--i', i);
-        let run = null;
-        line.forEach((p, k) => {
-          const text = (k ? ' ' : '') + p.w;
-          if (!run || run.cls !== p.cls) { run = { cls: p.cls, el: p.cls ? document.createElement('span') : null }; if (run.el) { run.el.className = p.cls; inner.append(run.el); } }
-          if (run.el) run.el.textContent += text; else inner.append(text);
-        });
-        outer.append(inner); heroTitle.append(outer);
-      });
-      hero.style.setProperty('--hero-late', `${(lines.length - 1) * 80 + 300}ms`);
-    };
-    if (reduceMotion) {
-      hero.classList.add('is-ready', 'is-static');
-    } else {
-      let started = false;
-      const start = () => { if (started) return; started = true; split(); hero.classList.add('is-ready'); };
-      // Wait briefly for the web font so line breaks match, but never hold the headline back.
-      Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 300))]).then(() => requestAnimationFrame(start));
-      if (document.fonts) document.fonts.ready.then(() => { if (started && hero.classList.contains('is-ready')) setTimeout(() => { hero.classList.add('is-static'); split(); }, 1400); });
-      let lastW = window.innerWidth;
-      window.addEventListener('resize', () => {
-        if (!started || Math.abs(window.innerWidth - lastW) < 30) return;
-        lastW = window.innerWidth; hero.classList.add('is-static'); split();
-      });
-    }
-  }
-
-  /* ---------- Soft WebGL glow behind the hero (CSS .bg-glow is the fallback) ---------- */
-  const glow = document.querySelector('canvas.hero-glow');
-  const startGlow = () => {
-    const gl = glow.getContext('webgl', { antialias: false, alpha: true, premultipliedAlpha: true, powerPreference: 'low-power' });
-    if (!gl) return;
-    const hex = (h) => { const n = parseInt(h.replace('#', ''), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; };
-    const cols = (glow.dataset.colors || '#22d3ee,#a78bfa,#f472b6').split(',').map(hex);
-    const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
-    const pr = gl.createProgram();
-    gl.attachShader(pr, sh(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'));
-    gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, `precision mediump float;uniform vec2 r;uniform float t;uniform vec3 c0,c1,c2;
-float b(vec2 u,vec2 c,float s){return exp(-dot(u-c,u-c)*s);}
-void main(){vec2 u=gl_FragCoord.xy/r;u.x*=r.x/r.y;float a=r.x/r.y;
-float x=b(u,vec2(a*(.18+.12*sin(t*.11)),.62+.16*cos(t*.13)),4.2);
-float y=b(u,vec2(a*(.78+.12*cos(t*.09)),.74+.14*sin(t*.12)),3.6);
-float z=b(u,vec2(a*(.52+.2*sin(t*.07)),.30+.12*cos(t*.1)),5.5);
-vec3 c=c0*x*.30+c1*y*.34+c2*z*.16;c+=(fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453)-.5)*.012;
-gl_FragColor=vec4(c,max(c.r,max(c.g,c.b)));}`));
-    gl.linkProgram(pr);
-    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return;
-    gl.useProgram(pr);
-    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const U = (n) => gl.getUniformLocation(pr, n);
-    ['c0', 'c1', 'c2'].forEach((n, i) => gl.uniform3fv(U(n), cols[i] || cols[0]));
-    const scale = window.innerWidth < 760 ? 0.35 : 0.5; // it's a blur, so half resolution is plenty
-    const draw = (ms) => {
-      const w = Math.max(1, glow.clientWidth * scale | 0), h = Math.max(1, glow.clientHeight * scale | 0);
-      if (glow.width !== w || glow.height !== h) { glow.width = w; glow.height = h; gl.viewport(0, 0, w, h); gl.uniform2f(U('r'), w, h); }
-      gl.uniform1f(U('t'), ms / 1000 + 20); gl.drawArrays(gl.TRIANGLES, 0, 3);
-    };
-    draw(0); glow.classList.add('is-on');
-    if (reduceMotion) { window.addEventListener('resize', () => draw(0)); return; }
-    let onScreen = true, last = 0, raf = 0;
-    const loop = (now) => { raf = requestAnimationFrame(loop); if (now - last < 33) return; last = now; draw(now); };
-    const sync = () => { cancelAnimationFrame(raf); raf = 0; if (onScreen && !document.hidden) raf = requestAnimationFrame(loop); };
-    new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; sync(); }).observe(glow);
-    document.addEventListener('visibilitychange', sync);
-  };
-  if (glow) {
-    // Start after the page has loaded and the browser is idle, so it never competes with the first paint.
-    const later = () => (window.requestIdleCallback ? requestIdleCallback(startGlow, { timeout: 1500 }) : setTimeout(startGlow, 300));
-    if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });
-  }
-
-  /* ---------- Business-type ticker: pause while off-screen ---------- */
-  const ticker = document.querySelector('.ticker');
-  if (ticker && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => ticker.classList.toggle('is-paused', !e.isIntersecting)).observe(ticker);
-  }
-
-  /* ---------- Reactive cursor dot + magnetic primary buttons (real mouse only) ---------- */
-  if (!reduceMotion && finePointer) {
-    const dot = document.createElement('div');
-    dot.className = 'cursor-dot'; dot.setAttribute('aria-hidden', 'true');
-    document.body.append(dot);
-    const HOT = 'a, button, summary, .work__item';
-    let tx = -100, ty = -100, x = -100, y = -100, s = 1, ts = 1, dotRaf = 0;
-    const tick = () => {
-      x += (tx - x) * 0.35; y += (ty - y) * 0.35; s += (ts - s) * 0.2;
-      dot.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${s.toFixed(3)})`;
-      dotRaf = (Math.abs(tx - x) + Math.abs(ty - y) + Math.abs(ts - s) > 0.05) ? requestAnimationFrame(tick) : 0;
-    };
-    const kick = () => { if (!dotRaf) dotRaf = requestAnimationFrame(tick); };
-    window.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      if (x < -50) { x = e.clientX; y = e.clientY; }
-      tx = e.clientX; ty = e.clientY;
-      const hot = !!(e.target.closest && e.target.closest(HOT));
-      ts = hot ? 2.5 : 1; dot.classList.toggle('is-hot', hot); dot.classList.add('is-on');
-      kick();
-    }, { passive: true });
-    document.documentElement.addEventListener('pointerleave', () => dot.classList.remove('is-on'));
-
-    document.querySelectorAll('.btn--primary').forEach((btn) => {
-      let bx = 0, by = 0, gx = 0, gy = 0, raf = 0;
-      const step = () => {
-        bx += (gx - bx) * 0.15; by += (gy - by) * 0.15;
-        btn.style.translate = `${bx.toFixed(2)}px ${by.toFixed(2)}px`;
-        raf = (Math.abs(gx - bx) + Math.abs(gy - by) > 0.05) ? requestAnimationFrame(step) : 0;
-        if (!raf && !gx && !gy) btn.style.translate = '';
-      };
-      const go = () => { if (!raf) raf = requestAnimationFrame(step); };
-      const clamp = (v) => Math.max(-6, Math.min(6, v));
-      btn.addEventListener('pointermove', (e) => {
-        const r = btn.getBoundingClientRect();
-        gx = clamp((e.clientX - (r.left + r.width / 2)) * 0.3);
-        gy = clamp((e.clientY - (r.top + r.height / 2)) * 0.3);
-        go();
-      });
-      btn.addEventListener('pointerleave', () => { gx = 0; gy = 0; go(); });
-    });
-  }
-
   /* ---------- Cursor trail (background only) ---------- */
   const canvas = document.getElementById('trail');
   if (!canvas || reduceMotion) return;
@@ -246,7 +101,7 @@ gl_FragColor=vec4(c,max(c.r,max(c.g,c.b)));}`));
   if (!ctx) return;
 
   // Pointer over any of these = "not background", so no trail.
-  const CONTENT = 'a, button, input, textarea, select, h1, h2, h3, p, li, summary, details, .card, .step, .why__item, .cta__band, .eyebrow, .logo, .nav';
+  const CONTENT = 'a, button, input, textarea, select, label, h1, h2, h3, h4, p, li, td, th, summary, details, table, form, .card, .step, .why__item, .cta__band, .eyebrow, .logo, .nav, .placeholder, .notes article, .hosting-note, .val, .mega, .level, .sticker, .marquee, .social-band, .backed, .trust-line, .form-card';
 
   let w = 0, h = 0, dpr = 1;
   const resize = () => {
