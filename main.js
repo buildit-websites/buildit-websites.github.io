@@ -7,8 +7,10 @@ const SITE = {
   name: 'BuildIT',
   email: 'tomas@buildit.net.au',
   emailSubject: 'Website enquiry',
-  phone: '0403 993 242',
-  phoneIntl: '+61403993242',
+  phone: '0403 993 241',
+  phoneIntl: '+61403993241',
+  /* Spots left on the first-5 free websites offer. Change this one number when a spot is taken. */
+  freeSpotsLeft: 5,
 };
 
 (() => {
@@ -23,6 +25,12 @@ const SITE = {
   document.querySelectorAll('[data-site="email"]').forEach((el) => { el.textContent = SITE.email; });
   document.querySelectorAll('[data-site="phone"]').forEach((el) => { el.textContent = SITE.phone; });
   document.querySelectorAll('[data-tel]').forEach((el) => { el.setAttribute('href', `tel:${SITE.phoneIntl}`); });
+  const spotsLeft = Number(SITE.freeSpotsLeft);
+  const spotsCount = Number.isFinite(spotsLeft) ? spotsLeft : 0;
+  document.querySelectorAll('[data-site="spots"]').forEach((el) => { el.textContent = String(spotsCount); });
+  document.querySelectorAll('[data-spots-word]').forEach((el) => {
+    el.textContent = spotsCount === 1 ? 'spot left' : 'spots left';
+  });
   document.querySelectorAll('[data-mailto]').forEach((el) => {
     const subject = el.dataset.subject || SITE.emailSubject;
     el.setAttribute('href', `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`);
@@ -271,7 +279,7 @@ const SITE = {
   if (!reduceMotion && !coarsePointer) {
     const orbs = [...document.querySelectorAll('.orb')];
     if (orbs.length) {
-      const SOLID = 'a, button, input, textarea, select, label, summary, h1, h2, h3, h4, p, li, td, th, img, .card, .level, .nav, .cta__band, .marquee, .form-card, .pinned__step, .hero__sellrow, .hero__actions, .backed, .frame, .faq__item, .placeholder, .compare-wrap, .notes article, .eyebrow';
+      const SOLID = 'a, button, input, textarea, select, label, summary, h1, h2, h3, h4, p, li, td, th, img, .card, .level, .nav, .cta__band, .marquee, .form-card, .pinned__step, .hero__sellrow, .hero__actions, .hero__offer, .backed, .frame, .faq__item, .placeholder, .compare-wrap, .notes article, .eyebrow';
       let px = -9999;
       let py = -9999;
       let raf = 0;
