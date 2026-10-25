@@ -511,7 +511,7 @@ h1 .gradient-text {
   background: rgba(13, 18, 36, .92);
   -webkit-overflow-scrolling: touch;
 }
-.compare { width: 100%; border-collapse: collapse; min-width: 1020px; }
+.compare { width: 100%; border-collapse: collapse; min-width: 720px; }
 .compare caption {
   caption-side: bottom;
   text-align: left;

@@ -1,16 +1,22 @@
 # BuildIT remodel — local working copy
 
+## Pricing
+
+- Level 1, Design & build, is **$1,000** one-time, ex GST.
+- Level 2, Design & build + Hosting & monitoring, is **$1,400** up front, then **$99 a month**, ex GST.
+- Hosting and monitoring on its own is removed. It is not a pricing card, a homepage level, a comparison column, an FAQ answer, or a contact plan.
+
 ## Phone, free offers, story
 
 - The published phone is **0403 993 241** (`tel:+61403993241`).
 - The home hero keeps price and phone on the left. A glass card on the open right holds the first 5 websites free for an honest review, spots left from `SITE.freeSpotsLeft` in `main.js` (set to 5), why those five are free, and a separate ongoing free offer for charities and community groups.
 - The story says Tomas is flipping his life around, and is changing his life through BuildIT and learning in the AI industry.
-- Level 1 stays $1,250. Level 2 stays $1,800 up front, then $99 a month.
+- Level 1 is $1,000. Level 2 is $1,400 up front, then $99 a month.
 
 ## Offers
 
 - Social media marketing is off the site: the Level 3 card, the Services section, the comparison column, the nav link, and the contact plan choice.
-- Level 1 stays Design & build at $1,250. Level 2 stays Design & build + Hosting & monitoring at $1,800 up front, then $99 a month.
+- Level 1 is Design & build at $1,000. Level 2 is Design & build + Hosting & monitoring at $1,400 up front, then $99 a month.
 
 ## Premium atmosphere pass
 
@@ -21,7 +27,7 @@
 
 ## Premium sales pass
 
-- Home opens with the price ($1,250, up to 5 pages, ex GST), the phone **0403 993 241**, and a Contact us button.
+- Home opens with the price ($1,000, up to 5 pages, ex GST), the phone **0403 993 241**, and a Contact us button.
 - How it works pins on a desktop scroll with a progress line, and stacks on a phone or when motion is reduced.
 - Current work keeps Perfect Jobs & Adventures, Lux-Lashes, and Innovo. Ember & Oat and Ironbark Electrical are example cards on the home page.
 - The story stays at the bottom. There is no values marquee.
@@ -39,7 +45,7 @@
 - Reordered main flow: Hero → What you get → How it works → Work (Perfect Jobs first) → Pricing → CTA → quiet Offers → quiet Story → footer.
 - Moved “Why I’m doing this” to a quiet bottom teaser (headline + short lead + link to `story.html`). No value cards on the homepage.
 - An earlier pass moved two declined offer blocks lower on the page. This pass removes them from the public site.
-- Rewrote meta / Open Graph / Twitter / JSON-LD descriptions toward quality websites, clear prices from $1,250, domain + optional hosting.
+- Rewrote meta / Open Graph / Twitter / JSON-LD descriptions toward quality websites, clear prices from $1,000, domain + optional hosting.
 - Canonical and absolute URLs now point at `https://buildit-websites.github.io/`.
 - Softened hero eyebrow to Northern Beaches · Australia-wide; price sticker and CTAs unchanged. Brand remains **BuildIT**.
 
