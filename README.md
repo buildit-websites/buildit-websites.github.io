@@ -23,7 +23,7 @@ Check a phone width in the browser's device toolbar (about 390px wide). The menu
 | Home | `index.html` | Price, phone and Contact us in the first screen, four steps, current work, example designs, prices, and the story at the bottom |
 | Services | `services.html` | Website design and build, and optional hosting |
 | Work | `work.html` | Perfect Jobs & Adventures (live site Tomas built), Lux-Lashes, Innovo, Ember & Oat, Ironbark Electrical |
-| Pricing | `pricing.html` | Paid plans and a comparison table. Hosting only says Placeholder |
+| Pricing | `pricing.html` | Two paid plans and a comparison table |
 | Pricing redirect | `offers.html` | Old address. Noindex, and it sends people to Pricing. It is not in the menu or the sitemap |
 | Why I'm doing this | `story.html` | First person, present tense: changing now, one honest job at a time, and core values tied to what he does |
 | How it works | `how-it-works.html` | The four steps, with hosting called out as optional |
@@ -41,11 +41,11 @@ The change log lives in this README. `ideas.html` is still in the repo, marked `
 
 Each item is something a small web-business site benefits from. Take the ones you want. The rest can be deleted without breaking the others.
 
-1. **Tabs, one job per page.** Home, Why I'm doing this, Services, Work, Pricing, How it works, About, FAQ and Contact. The look is a dark studio site: large type, a cyan business-type band, glass cards, and pricing levels. Level 1 is design and build at $1,250. Level 2 is design and build plus hosting and monitoring at $1,800 up front, then $99 a month. Scroll-in reveals stay. The square grid and the cursor trail are gone. A soft aurora sits behind the pages, and the lights swell when a mouse moves through open background. That reaction is off for reduced motion and for touch.
+1. **Tabs, one job per page.** Home, Why I'm doing this, Services, Work, Pricing, How it works, About, FAQ and Contact. The look is a dark studio site: large type, a cyan business-type band, glass cards, and pricing levels. Level 1 is design and build at $1,000. Level 2 is design and build plus hosting and monitoring at $1,400 up front, then $99 a month. Scroll-in reveals stay. The square grid and the cursor trail are gone. A soft aurora sits behind the pages, and the lights swell when a mouse moves through open background. That reaction is off for reduced motion and for touch.
 
-2. **Your copy stays put.** Branding, Ember & Oat, Ironbark Electrical, Lux-Lashes ([lux-lashes.com](https://www.lux-lashes.com)), and Innovo ([innovotech.com](https://www.innovotech.com)) are from the live site. The email is now **tomas@buildit.net.au**. See item 18. [Perfect Jobs & Adventures](https://perfectjobsandadventures.github.io/) is a real site Tomas built. It is first under Current work on the home page and the Work page, tagged Live site, ahead of the example designs. The card image is a screenshot of the live homepage at `assets/work/perfectjobs.png`. The link opens in a new tab. The description says what the site is. No stats, results or testimonials were added. The phone number is **0403 993 241** (`tel:+61403993241`) on every page, the call buttons, and the search listing. The dollar amounts are the same: **Design & build $1,250 one-time**, **Design & build + Hosting & monitoring $1,800 up front, then $99 a month**. Hosting is no longer inside the $1,250. See item 15.
+2. **Your copy stays put.** Branding, Ember & Oat, Ironbark Electrical, Lux-Lashes ([lux-lashes.com](https://www.lux-lashes.com)), and Innovo ([innovotech.com](https://www.innovotech.com)) are from the live site. The email is now **tomas@buildit.net.au**. See item 18. [Perfect Jobs & Adventures](https://perfectjobsandadventures.github.io/) is a real site Tomas built. It is first under Current work on the home page and the Work page, tagged Live site, ahead of the example designs. The card image is a screenshot of the live homepage at `assets/work/perfectjobs.png`. The link opens in a new tab. The description says what the site is. No stats, results or testimonials were added. The phone number is **0403 993 241** (`tel:+61403993241`) on every page, the call buttons, and the search listing. The dollar amounts are **Design & build $1,000 one-time**, **Design & build + Hosting & monitoring $1,400 up front, then $99 a month**. Hosting is not inside the $1,000. See item 15.
 
-3. **Pricing comparison table.** Three columns: Design & build, Design & build + Hosting & monitoring, and Hosting & monitoring only. Included and not included are written in words. Unset prices say Placeholder. On a narrow screen the table scrolls sideways and the first column stays visible. Items that were only on the published Website + Care plan stay on the $1,800 column. They are listed as themselves, not quietly renamed "monitoring". Backups, security updates and email support on hosting-only say Placeholder, because they were not a separate hosting-only list.
+3. **Pricing comparison table.** Two columns: Design & build, and Design & build + Hosting & monitoring. Included and not included are written in words. On a narrow screen the table scrolls sideways and the first column stays visible. Items that were only on the published Website + Care plan stay on the $1,400 column. They are listed as themselves, not quietly renamed "monitoring". There is no hosting-only column.
 
 4. **About you, and the Northern Beaches.** Local customers want a name and a place. The About page says "I'm Tomas. BuildIT is my studio." and links to Why I'm doing this. The same place shows in the home eyebrow, the footer, and the page's schema `areaServed`. No suburbs, work history, client numbers or awards were invented.
 
@@ -59,7 +59,7 @@ Each item is something a small web-business site benefits from. Take the ones yo
 
 9. **Share preview.** Every public page has `og:image`, `og:image:width`, `og:image:height`, `og:image:alt`, `twitter:card` (`summary_large_image`) and `twitter:image`, pointing at the existing `og-image.png` (1200×630). Absolute URLs are required for iMessage, Facebook, LinkedIn and similar. The image file is the one already on Tomas's site.
 
-10. **No invented social proof.** No testimonials, star ratings, client counts or awards. Unset prices still say Placeholder. The why-copy is a first-person draft from the reasons Nick gave. It does not add life events, history, numbers or quotes.
+10. **No invented social proof.** No testimonials, star ratings, client counts or awards. The why-copy is a first-person draft from the reasons Nick gave. It does not add life events, history, numbers or quotes.
 
 11. **Relative links and `.nojekyll`.** Links between pages are relative, so the site works in a local folder and in a GitHub project site (which is served from `/buildit-nick-version/`, not the domain root). `.nojekyll` tells GitHub Pages to serve the files as they are, instead of running Jekyll.
 
@@ -67,17 +67,17 @@ Each item is something a small web-business site benefits from. Take the ones yo
 
 13. **Removed offers.** The two free offers are off the public site. `offers.html` is a noindex redirect to Pricing. It is not in the menu or the sitemap.
 
-14. **Paid plans only.** Design & build, Design & build + Hosting & monitoring, and Hosting & monitoring only. No free-offer cards, brief choices, or FAQ answers.
+14. **Paid plans only.** Design & build, and Design & build + Hosting & monitoring. No hosting-only plan, and no free-offer cards, brief choices, or FAQ answers.
 
-15. **Hosting is optional.** Design & build is the existing **$1,250** and does not include hosting. Domain setup stayed on that price, because the live site already included the domain at $1,250. Design & build + Hosting & monitoring is the existing **$1,800** up front, then **$99 a month**. Hosting & monitoring only has no price: the card, the table and the form say **Placeholder**. The contact form opens the matching choice from `?plan=design`, `design-hosting`, `hosting` or `unsure`.
+15. **Hosting is optional.** Design & build is **$1,000** one-time, ex GST, and does not include hosting. Domain setup stays on that price. Design & build + Hosting & monitoring is **$1,400** up front, then **$99 a month**, ex GST. There is no hosting-only plan. The contact form opens the matching choice from `?plan=design`, `design-hosting` or `unsure`.
 
 16. **One assurance line.** There is no contracts page and no contract download. Contract sections, the contact card, the lines beside prices, and the FAQ question "Who is the contract with?" are removed. The footer on every page says: "BuildIT is backed by Nick Finlayson, and the work is contracted through Innovo." Innovo links to https://innovotech.com. The Work lead says Tomas built Perfect Jobs & Adventures, and that Nick Finlayson built the Lux-Lashes and Innovo sites.
 
-17. **Page limits.** Design & build is **$1,250 ex GST** for up to 5 pages and 3 revisions. Design & build + Hosting & monitoring is **$1,800 up front, then $99 a month, ex GST** for up to 8 pages, basic SEO set-up (titles, descriptions, a Google Business link, and analytics), hosting and monitoring, and 3 revisions. Extra pages are **$150 per page, ex GST**, on either paid plan. Those limits are on the home price cards, Pricing (paid levels, paid plan cards, and the comparison table), Services, and the paid FAQ answers, including "What if I need more pages?"
+17. **Page limits.** Design & build is **$1,000 ex GST** for up to 5 pages and 3 revisions. Design & build + Hosting & monitoring is **$1,400 up front, then $99 a month, ex GST** for up to 8 pages, basic SEO set-up (titles, descriptions, a Google Business link, and analytics), hosting and monitoring, and 3 revisions. Extra pages are **$150 per page, ex GST**, on either paid plan. Those limits are on the home price cards, Pricing (paid levels, paid plan cards, and the comparison table), Services, and the paid FAQ answers, including "What if I need more pages?"
 
 18. **Email.** Tomas's address is **tomas@buildit.net.au**, in `main.js`, the contact blocks, mailto links, the FormSubmit form action, structured data, `404.html`, and the two example sites. The public canonical URL is still the GitHub Pages address. No CNAME is set. FormSubmit's thank-you address is `https://buildit-websites.github.io/thanks.html`.
 
-19. **Prices are ex GST.** Said on the Pricing page: in the introduction, above the three offers, on the comparison headings, in the table caption, and in the FAQ. The home price section says it too, so those figures are not read as GST-inclusive. The dollar amounts are unchanged. No GST was added on top.
+19. **Prices are ex GST.** Said on the Pricing page: in the introduction, above the two offers, on the comparison headings, in the table caption, and in the FAQ. The home price section says it too, so those figures are not read as GST-inclusive. Design and build is $1,000. Design and build plus hosting and monitoring is $1,400 up front, then $99 a month. No GST was added on top.
 
 ## Files
 
@@ -95,13 +95,13 @@ Each item is something a small web-business site benefits from. Take the ones yo
 
 `ideas.html` is left out of `sitemap.xml`, marked `noindex`, and is not linked from the nav or footer.
 
-20. **Start your project.** `brief.html` is a grouped design brief in the All In look: business, goals, pages, look and feel, features, content, and plan. The paid-plan note says up to 5 pages on the $1,250 build, up to 8 on Website + Care, and extra pages at $150 ex GST. Submit posts to FormSubmit with the subject "BuildIT design brief", then opens `thanks.html`. A mailto link stays on the form as a fallback. The header button on each page says Start your project. Pricing, How it works, and Contact link to it. `netlify.toml` publishes `.` with no build command. Canonical URLs stay on the GitHub Pages address. No CNAME is set.
+20. **Start your project.** `brief.html` is a grouped design brief in the All In look: business, goals, pages, look and feel, features, content, and plan. The paid-plan note says up to 5 pages on the $1,000 build, up to 8 on Design & build + Hosting & monitoring, and extra pages at $150 ex GST. Submit posts to FormSubmit with the subject "BuildIT design brief", then opens `thanks.html`. A mailto link stays on the form as a fallback. The header button on each page says Start your project. Pricing, How it works, and Contact link to it. `netlify.toml` publishes `.` with no build command. Canonical URLs stay on the GitHub Pages address. No CNAME is set.
 
 ## Changing the business name, email, phone or prices
 
 Edit the `SITE` object at the top of `main.js` for the name, email and phone that JavaScript fills in. The free-website counter is `SITE.freeSpotsLeft` in that same object. It starts at 5. Change that one number when a spot is taken.
 
-Also update the copies in each page's `<head>` (title, description, canonical, Open Graph, Twitter, JSON-LD), the email address in `404.html` and `contact.html`, and the prices in `index.html`, `pricing.html`, `contact.html` and `faq.html`. Search for `1,250`, `1,800`, `99` and `Placeholder` so a price change does not leave an old number, or a real number, in a spot that should still say Placeholder.
+Also update the copies in each page's `<head>` (title, description, canonical, Open Graph, Twitter, JSON-LD), the email address in `404.html` and `contact.html`, and the prices in `index.html`, `pricing.html`, `contact.html` and `faq.html`. Search for `1,000`, `1,400` and `99` so a price change does not leave an old number.
 
 The public site URL used for sharing is:
 

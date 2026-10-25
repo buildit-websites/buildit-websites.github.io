@@ -64,7 +64,7 @@ const SITE = {
   if (contactForm) {
     const planInput = contactForm.querySelector('[name="plan"]');
     const wantedPlan = new URLSearchParams(window.location.search).get('plan');
-    const knownPlans = ['design', 'design-hosting', 'hosting', 'unsure'];
+    const knownPlans = ['design', 'design-hosting', 'unsure'];
     if (planInput && knownPlans.includes(wantedPlan)) planInput.value = wantedPlan;
   }
 
