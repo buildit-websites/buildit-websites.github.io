@@ -1304,6 +1304,143 @@ html.can-preview .work__item:focus-within .frame__view::before {
 html.can-preview .work__item:hover .frame__view::after,
 html.can-preview .work__item:focus-within .frame__view::after { opacity: 0; }
 
+/* Hero offer: a work-card sized glass panel in the open right of the hero. */
+.hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  column-gap: 40px;
+  align-items: start;
+}
+.hero__lead { min-width: 0; }
+.hero__offer { min-width: 0; }
+.hero--sell .hero__lead .hero__sub { margin: 4px 0 0; }
+.hero--sell .hero__title {
+  font-size: clamp(2.55rem, 4.1vw, 4.2rem);
+}
+.hero--sell .split__line { white-space: normal; }
+.hero__offer { min-width: 0; }
+.hero__offer-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .028)) padding-box,
+    linear-gradient(165deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 46%, rgba(167, 139, 250, .42)) border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 28px 60px -36px rgba(0, 0, 0, .88);
+  overflow: hidden;
+}
+.hero__offer-panel {
+  margin: 14px 14px 0;
+  padding: 22px 22px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background:
+    radial-gradient(90% 80% at 0% 0%, rgba(34, 211, 238, .16), transparent 58%),
+    radial-gradient(80% 70% at 100% 100%, rgba(167, 139, 250, .18), transparent 62%),
+    #0d1222;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4 / 5;
+}
+@media (min-width: 1081px) {
+  .hero__offer-card { min-height: 734px; }
+  .hero__offer-panel { flex: 1 1 auto; aspect-ratio: auto; min-height: 28rem; }
+}
+.hero__offer-kicker {
+  margin: 0 0 12px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.hero__offer-panel h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 3vw, 3.1rem);
+  letter-spacing: -.04em;
+}
+.hero__offer-line {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+.hero__offer-count {
+  margin: auto 0 0;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(4.2rem, 6vw, 5.5rem);
+  letter-spacing: -.045em;
+  line-height: .9;
+}
+.hero__offer-count small {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.hero__offer-body {
+  padding: 22px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hero__offer-body h3 {
+  font-size: 1.35rem;
+  margin-bottom: .35em;
+}
+.hero__offer-body p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+.hero__offer-why {
+  margin: 16px 4px 0;
+  max-width: 36ch;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.5;
+}
+@media (min-width: 1180px) {
+  .hero--sell .split__line { white-space: nowrap; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero__offer-card { transition: transform .28s ease, box-shadow .28s ease; }
+  .hero__offer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 22px 44px -28px rgba(0, 0, 0, .9);
+  }
+}
+@media (max-width: 1080px) {
+  .hero__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "sell"
+      "actions"
+      "offer"
+      "sub";
+    gap: 16px;
+  }
+  .hero__lead { display: contents; }
+  .hero__lead > .eyebrow { grid-area: eyebrow; }
+  .hero__lead > .hero__title { grid-area: title; }
+  .hero__lead > .hero__sellrow { grid-area: sell; }
+  .hero__lead > .hero__actions { grid-area: actions; }
+  .hero__lead > .hero__sub { grid-area: sub; }
+  .hero__offer { grid-area: offer; width: min(100%, 380px); }
+  .hero--sell .split__line { white-space: normal; }
+}
+@media (max-width: 700px) {
+  .hero__offer { width: 100%; }
+  .hero__offer-count { font-size: 4.2rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .frame__view,
   html.can-preview .frame__view { aspect-ratio: 4 / 5; }
@@ -1317,4 +1454,6 @@ html.can-preview .work__item:focus-within .frame__view::after { opacity: 0; }
   }
   .frame__view::before { display: none; }
   .orb { scale: 1 !important; translate: 0 0 !important; filter: blur(22px) !important; }
+  .hero__offer-card,
+  .hero__offer-card:hover { transform: none !important; transition: none !important; }
 }

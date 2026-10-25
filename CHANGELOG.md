@@ -1,5 +1,12 @@
 # BuildIT remodel — local working copy
 
+## Phone, free offers, story
+
+- The published phone is **0403 993 241** (`tel:+61403993241`).
+- The home hero keeps price and phone on the left. A glass card on the open right offers the first 5 websites free for an honest review, with spots left read from `SITE.freeSpotsLeft` in `main.js` (set to 5), and a separate line for free charity and community sites. A short note under the card says why.
+- The story says Tomas was in jail, is flipping his life around, and is changing his life through BuildIT and learning in the AI industry.
+- Level 1 stays $1,250. Level 2 stays $1,800 up front, then $99 a month.
+
 ## Offers
 
 - Social media marketing is off the site: the Level 3 card, the Services section, the comparison column, the nav link, and the contact plan choice.
@@ -14,7 +21,7 @@
 
 ## Premium sales pass
 
-- Home opens with the price ($1,250, up to 5 pages, ex GST), the phone **0403 993 242**, and a Contact us button.
+- Home opens with the price ($1,250, up to 5 pages, ex GST), the phone **0403 993 241**, and a Contact us button.
 - How it works pins on a desktop scroll with a progress line, and stacks on a phone or when motion is reduced.
 - Current work keeps Perfect Jobs & Adventures, Lux-Lashes, and Innovo. Ember & Oat and Ironbark Electrical are example cards on the home page.
 - The story stays at the bottom. There is no values marquee.
