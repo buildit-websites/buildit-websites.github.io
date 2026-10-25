@@ -3,7 +3,7 @@
 ## Phone, free offers, story
 
 - The published phone is **0403 993 241** (`tel:+61403993241`).
-- The home hero keeps price and phone on the left. A glass card on the open right offers the first 5 websites free for an honest review, with spots left read from `SITE.freeSpotsLeft` in `main.js` (set to 5), and a separate line for free charity and community sites. A short note under the card says why.
+- The home hero keeps price and phone on the left. A glass card on the open right holds the first 5 websites free for an honest review, spots left from `SITE.freeSpotsLeft` in `main.js` (set to 5), why those five are free, and a separate ongoing free offer for charities and community groups.
 - The story says Tomas was in jail, is flipping his life around, and is changing his life through BuildIT and learning in the AI industry.
 - Level 1 stays $1,250. Level 2 stays $1,800 up front, then $99 a month.
 
