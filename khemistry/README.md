@@ -27,7 +27,9 @@ Links and assets are relative, so the same files work in this folder on GitHub P
 
 ## Logo
 
-`assets/logo.svg` is three square element cells: Pp People (navy, cyan symbol), Pl Place (bright teal), Pu Purpose (cobalt, gold symbol). The header inlines the same mark so the type stays sharp beside the Khemistry wordmark. On a narrow screen the header keeps the symbols and hides the tiny names. `favicon.svg` is the three-bar version of that mark.
+`assets/logo.svg` is a sharp teal network mark in the spirit of the khemistry.co logo: nodes and links in a brain-like molecule. The header inlines it beside the wordmark. `favicon.svg` is the same mark on cream. The homepage hero is still the Pp + Pl + Pu formula.
+
+The page background is a soft cream wash. Faint DNA, orbital, and molecule drawings sit in the margins. They are static.
 
 ## Photographs
 
