@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 52" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Khemistry</title>
+  <desc id="logo-desc">Periodic-table mark: Pp People, Pl Place, and Pu Purpose.</desc>
+  <rect x="0" y="0" width="52" height="52" rx="3" fill="#0C3E72"/>
+  <rect x="58" y="0" width="52" height="52" rx="3" fill="#14C8D4"/>
+  <rect x="116" y="0" width="52" height="52" rx="3" fill="#2A62FF"/>
+  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace">
+    <text x="5" y="11" font-size="7" fill="#FFF6E4" fill-opacity="0.8">01</text>
+    <text x="26" y="31" text-anchor="middle" font-size="16" fill="#5EFBFF">Pp</text>
+    <text x="26" y="45" text-anchor="middle" font-size="7" fill="#FFF6E4" font-family="ui-sans-serif, system-ui, sans-serif">People</text>
+    <text x="63" y="11" font-size="7" fill="#0C3E72" fill-opacity="0.72">02</text>
+    <text x="84" y="31" text-anchor="middle" font-size="16" fill="#0C3E72">Pl</text>
+    <text x="84" y="45" text-anchor="middle" font-size="7" fill="#0C3E72" font-family="ui-sans-serif, system-ui, sans-serif">Place</text>
+    <text x="121" y="11" font-size="7" fill="#FFF6E4" fill-opacity="0.8">03</text>
+    <text x="142" y="31" text-anchor="middle" font-size="16" fill="#FFE56A">Pu</text>
+    <text x="142" y="45" text-anchor="middle" font-size="7" fill="#FFF6E4" font-family="ui-sans-serif, system-ui, sans-serif">Purpose</text>
+  </g>
+</svg>
