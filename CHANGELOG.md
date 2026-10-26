@@ -1,5 +1,11 @@
 # BuildIT remodel — local working copy
 
+## Homepage story placement
+
+- Why I'm doing this sits on the homepage directly under the cyan business-types marquee and above What you get.
+- The bottom teaser is removed, so the story appears once. Replay intro stays with that block.
+- Homepage copy is adapted from `story.html`: about me, my story, why I'm doing this, and honesty / owning it / showing up, with a link to the full page.
+
 ## Pricing
 
 - Level 1, Design & build, is **$1,000** one-time, ex GST.
