@@ -1544,12 +1544,17 @@ html.can-preview .work__item:focus-within .frame__view::after { opacity: 0; }
 .follow__links { display: flex; gap: 12px; flex-wrap: wrap; }
 .faq-line { margin-top: 24px; opacity: .9; }
 @media (max-width: 1080px) { .hero__lead > .hero__freeline { grid-area: sell; } }
-.hero__character { position: relative; width: 132px; height: 132px; margin: 4px 0 14px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6); }
-.hero__character-fallback, .hero__character img { position: absolute; inset: 3px; border-radius: 50%; }
-.hero__character-fallback { display: grid; place-items: center; background: #0b1022; font-size: 3.2rem; font-weight: 700; line-height: 1; color: #a78bfa; }
-.hero__character img { width: calc(100% - 6px); height: calc(100% - 6px); object-fit: cover; background: #0b1022; }
+.hero__character { margin: 0 0 10px; height: 150px; width: auto; }
+.hero__character img { display: block; height: 100%; width: auto; transform-origin: 50% 100%; animation: tomas-sway 7s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.4)); }
+@keyframes tomas-sway { 0%,100% { transform: rotate(-.6deg); } 50% { transform: rotate(.6deg); } }
+@media (prefers-reduced-motion: reduce) { .hero__character img { animation: none; } }
 @media (max-width: 1080px) {
-  .hero__layout { grid-template-areas: "eyebrow" "character" "title" "sell" "actions" "offer" "sub"; }
+  .hero--tomas .hero__layout { grid-template-areas: "eyebrow" "character" "title" "sell" "actions" "offer" "sub"; }
   .hero__lead > .hero__character { grid-area: character; margin: 0; }
 }
-@media (max-width: 700px) { .hero__character { width: 104px; height: 104px; } }
+@media (max-width: 700px) { .hero__character { height: 90px; } }
+.offer-strip { padding: 14px 0; background: rgba(167,139,250,.12); border-bottom: 1px solid rgba(167,139,250,.25); font-size: .98rem; }
+.offer-strip p { margin: 0; }
+.offer-strip a { white-space: nowrap; }
+.follow[hidden] { display: none; }
+.hero__character picture { display: block; height: 100%; }
