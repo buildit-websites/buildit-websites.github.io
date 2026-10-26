@@ -81,6 +81,10 @@ const SITE = {
       el.style.transitionDelay = `${(i % 4) * 70}ms`;
       io.observe(el);
     });
+    /* Used by the header logo's total reset: hide reveals again and re-observe them. */
+    window.__resetReveals = () => {
+      reveals.forEach((el) => { el.classList.remove('is-visible'); io.unobserve(el); io.observe(el); });
+    };
   }
 
   /* ---------- Magnetic buttons: three home CTAs, fine pointer only ---------- */
