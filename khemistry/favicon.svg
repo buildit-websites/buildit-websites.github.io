@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Khemistry">
-  <rect width="32" height="32" rx="7" fill="#F6F1E7"/>
-  <rect x="4" y="5" width="6.6" height="22" rx="1.6" fill="#0E2744"/>
-  <rect x="12.7" y="5" width="6.6" height="22" rx="1.6" fill="#115E68"/>
-  <rect x="21.4" y="5" width="6.6" height="22" rx="1.6" fill="#1A4570"/>
+  <rect width="32" height="32" rx="7" fill="#FFF4DC"/>
+  <rect x="3.5" y="7" width="7" height="18" rx="1.4" fill="#0C3E72"/>
+  <rect x="12.5" y="7" width="7" height="18" rx="1.4" fill="#14C8D4"/>
+  <rect x="21.5" y="7" width="7" height="18" rx="1.4" fill="#2A62FF"/>
 </svg>
