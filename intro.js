@@ -327,13 +327,16 @@
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => { intro.style.opacity = '0'; });
     });
-    window.setTimeout(() => {
+    window.clearTimeout(softTimer);
+    softTimer = window.setTimeout(() => {
+      softTimer = 0;
       intro.style.opacity = '';
       intro.style.transition = '';
       finish();
     }, 1350);
   }
 
+  let softTimer = 0;
   function play() {
     window.__introStarted = true;
     window.__introWatch = Date.now() + 9000;
@@ -368,6 +371,30 @@
     play();
   }
 
+  /* Total reset from the header logo: top of page, fresh reveals, full intro again.
+     Safe to call repeatedly, including mid-intro: it cancels the running frame/timer first. */
+  function totalReset() {
+    window.cancelAnimationFrame(raf);
+    raf = 0;
+    window.clearTimeout(softTimer);
+    softTimer = 0;
+    try { sessionStorage.removeItem('buildit-intro'); } catch (e) { /* private mode */ }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (typeof window.__resetReveals === 'function') window.__resetReveals();
+    done = true;
+    reset();
+    play();
+    try { sessionStorage.setItem('buildit-intro', '1'); } catch (e) { /* private mode */ }
+  }
+  window.__totalReset = totalReset;
+  document.querySelectorAll('header .logo').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      totalReset();
+    });
+  });
+
   skipBtn.addEventListener('click', skip);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') skip();
@@ -387,7 +414,11 @@
   let seen = false;
   try { seen = sessionStorage.getItem('buildit-intro') === '1'; } catch (e) { seen = false; }
   try { sessionStorage.setItem('buildit-intro', '1'); } catch (e) { /* private mode */ }
-  const skipNow = seen || /[?&]nointro/.test(window.location.search);
+  const forceIntro = /[?&]intro=1/.test(window.location.search);
+  if (forceIntro) {
+    try { history.replaceState(null, '', window.location.pathname + window.location.hash); } catch (e) { /* ignore */ }
+  }
+  const skipNow = (seen && !forceIntro) || /[?&]nointro/.test(window.location.search);
   if (skipNow) {
     root.classList.remove('intro-on');
     root.classList.add('introgone');
