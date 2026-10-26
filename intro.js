@@ -85,7 +85,8 @@
         vy: Math.sin(a) * s * 0.9,
         l: 1,
         c: COLS[i % 4],
-        r: 1 + Math.random() * 2,
+        /* Core is a few CSS pixels so the disc reads as a circle, not a single pixel. */
+        r: 2.6 + Math.random() * 2.1,
       });
     }
   }
@@ -246,9 +247,16 @@
       p.y += p.vy * dt;
       p.l -= dt * 1.4;
       if (p.l <= 0) return;
-      ctx.fillStyle = `rgba(${p.c},${p.l.toFixed(2)})`;
+      const life = p.l;
+      const glow = p.r * 3.2;
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glow);
+      grad.addColorStop(0, `rgba(${p.c},${Math.min(1, life).toFixed(3)})`);
+      grad.addColorStop(0.28, `rgba(${p.c},${(life * 0.72).toFixed(3)})`);
+      grad.addColorStop(0.55, `rgba(${p.c},${(life * 0.22).toFixed(3)})`);
+      grad.addColorStop(1, `rgba(${p.c},0)`);
+      ctx.fillStyle = grad;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, 7);
+      ctx.arc(p.x, p.y, glow, 0, Math.PI * 2);
       ctx.fill();
     });
     ctx.globalCompositeOperation = 'source-over';
