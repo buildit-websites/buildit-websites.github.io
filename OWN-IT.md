@@ -23,6 +23,7 @@ This folder is the whole BuildIT website. Everything is plain HTML, CSS and Java
 | `app.js` | The intro, scroll effects, your little character, and the mobile menu. You rarely need to touch it. |
 | `favicon.svg` | Your BuildIT logo (also used in the header). |
 | `img/` | Screenshots of projects (`pap.webp`, `lux.webp`, …), sample thumbnails (`s-….webp`) and your character (`tomas.webp`). |
+| `samples/` | Six sample sites for fictional Northern Beaches businesses (`samples/<name>/index.html`), with their shared `samples/assets/` styles. |
 | `examples/` | The Ember & Oat and Ironbark Electrical sample sites. |
 | `sitemap.xml`, `robots.txt` | Help Google find your pages. |
 
@@ -80,7 +81,7 @@ Change `Open` to `Taken`. If you want it greyed out, use `<li class="taken">`.
 
 ## 6. Swap a sample design
 
-Samples are in `work.html` (and the homepage "Sample designs" strip). Each one is a `<li class="sample">` with a link, a thumbnail in `img/s-….webp`, and the label **Sample design … (fictional)**. Always keep that label so nobody thinks a sample is a real client.
+Samples are in `work.html` (and the homepage "Sample designs" strip). Each one is a `<li class="sample">` with a link to its folder (for example `samples/swell-academy/`), a thumbnail in `img/s-….webp`, and the label **Sample design … (fictional)**. Always keep that label so nobody thinks a sample is a real client.
 
 ## 7. Preview before it goes live
 
