@@ -490,7 +490,7 @@ h1 .gradient-text {
 .section__lead.work__lead { margin: 0 0 32px; }
 .work__body h4 { font-family: var(--font-head); font-size: 1.4rem; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 .5em; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 
-/* ===== Nick's multi-page additions ===== */
+/* ===== Multi-page additions ===== */
 .page-hero + .section { padding-top: 48px; }
 .more-link { margin-top: 28px; }
 .contact-actions { margin-bottom: 28px; }
@@ -1558,3 +1558,5 @@ html.can-preview .work__item:focus-within .frame__view::after { opacity: 0; }
 .offer-strip a { white-space: nowrap; }
 .follow[hidden] { display: none; }
 .hero__character picture { display: block; height: 100%; }
+.footer__company { margin-top: 8px !important; font-size: .78rem; color: var(--muted); opacity: .8; max-width: 320px; }
+.footer__company a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.25); text-underline-offset: 2px; }

@@ -14,22 +14,8 @@
   <script>
     // GitHub Pages serves this file at the missing URL. Root-absolute assets
     // stay on the site root when that URL is nested (for example /examples/nope/x).
-    // The retired project path still gets its own prefix.
     (function () {
-      var marker = "/buildit-nick-version/";
-      var path = location.pathname;
-      var atKnownFile = /\/[^/]+\.html$/.test(path) || path.endsWith("/");
       var jsSrc = "/main.js";
-      if (path.indexOf(marker) === 0 && !atKnownFile) {
-        document.getElementById("site-css").href = marker + "styles.css";
-        document.getElementById("site-icon").href = marker + "favicon.svg";
-        jsSrc = marker + "main.js";
-        document.addEventListener("DOMContentLoaded", function () {
-          document.querySelectorAll("[data-root]").forEach(function (a) {
-            a.setAttribute("href", marker + a.getAttribute("href").replace(/^\//, ""));
-          });
-        });
-      }
       var js = document.createElement("script");
       js.src = jsSrc;
       js.defer = true;
@@ -57,5 +43,6 @@
       </div>
     </div>
   </main>
+  <footer class="footer"><div class="container footer__inner"><div class="footer__brand"><p class="footer__company">BuildIT is a company of Ampyre Pty Ltd, a sister company to <a href="https://innovotech.com" target="_blank" rel="noopener">Innovo<span class="visually-hidden"> (opens in a new tab)</span></a>.</p></div></div></footer>
 </body>
 </html>
