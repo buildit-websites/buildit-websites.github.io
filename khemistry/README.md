@@ -20,7 +20,7 @@ Links and assets are relative, so the same files work in this folder on GitHub P
 
 ## Pages
 
-- `index.html` — homepage. Three periodic-table cells (Pp, Pl, Pu) link to their pages.
+- `index.html` — homepage. The first screen is a navy strip of three square element cells, Pp + Pl + Pu, each linking to its page.
 - `people.html`, `place.html`, `purpose.html` — what each element means.
 - `why.html` — the three lines from the current site, plus where the work sits.
 - `connect.html` — contact details, a note form, and a newsletter form.
