@@ -27,9 +27,9 @@ Links and assets are relative, so the same files work in this folder on GitHub P
 
 ## Logo
 
-`assets/logo.svg` is a sharp teal network mark in the spirit of the khemistry.co logo: nodes and links in a brain-like molecule. The header inlines it beside the wordmark. `favicon.svg` is the same mark on cream. The homepage hero is still the Pp + Pl + Pu formula.
+`assets/logo.svg` is a crisp vector of the khemistry.co mark: a teal molecule with a central hub, an orbital ring, and connected nodes. The glossy spheres are flat gradients, not a raster. The header places it beside the wordmark. `favicon.svg` is the same mark on cream. The homepage hero is still the Pp + Pl + Pu formula.
 
-The page background is a soft cream wash. Faint DNA, orbital, and molecule drawings sit in the margins. They are static.
+The page background is a soft cream wash. Faint DNA, orbital, and molecule drawings sit in the margins.
 
 ## Photographs
 
@@ -41,7 +41,7 @@ The pictures in `assets/` are Unsplash photos, free to use under the [Unsplash L
 
 ## Motion
 
-On the homepage the three element cells drift a few pixels and lift on hover. Sibling cells ease back. That is the only motion. It switches off when the visitor has `prefers-reduced-motion` set. The drift also pauses when a cell is off screen.
+On the homepage the three element cells drift, their symbols ease in opacity, and the plus signs breathe. The margin drawings drift, and the orbit beside the practice section turns slowly. People has a pulsing network, Place has rings with a moving electron, and Purpose has sparks that rise around a small orbit. Cells still lift on hover, and the drift pauses off screen. `prefers-reduced-motion` turns all of that off.
 
 ## Still to come from Maidlin
 

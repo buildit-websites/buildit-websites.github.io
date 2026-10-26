@@ -145,9 +145,8 @@ body[data-page="connect"] { --accent: var(--navy); }
   min-width: 0;
 }
 .brand__mark {
-  width: 2.45rem;
+  width: 4.35rem;
   height: auto;
-  aspect-ratio: 1;
   flex: 0 0 auto;
 }
 .brand__name {
@@ -225,7 +224,7 @@ body[data-page="connect"] { --accent: var(--navy); }
 .nav-list .btn { margin-top: 0.35rem; justify-content: center; }
 
 @media (min-width: 720px) {
-  .brand__mark { width: 2.85rem; }
+  .brand__mark { width: 5rem; }
   .brand__name { font-size: 1.7rem; }
 }
 @media (min-width: 980px) {
@@ -237,7 +236,7 @@ body[data-page="connect"] { --accent: var(--navy); }
     min-height: var(--nav-h);
   }
   .bar { min-height: 0; }
-  .brand__mark { width: 3rem; }
+  .brand__mark { width: 5.35rem; }
   .nav-toggle { display: none; }
   .nav-panel { display: block; padding: 0; }
   .nav-list {
@@ -337,6 +336,34 @@ body[data-page="connect"] { --accent: var(--navy); }
     top: 1.35rem;
   }
 }
+
+@keyframes drift-y {
+  from { transform: translate3d(0, -7px, 0); }
+  to { transform: translate3d(0, 8px, 0); }
+}
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@keyframes sym-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes plus-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+.spark--hero-dna { animation: drift-y 12s ease-in-out infinite alternate; }
+.spark--hero-mol { animation: drift-y 15s ease-in-out infinite alternate-reverse; }
+.spark--hero-orbit { animation: drift-y 10s ease-in-out infinite alternate; }
+.spark--side {
+  animation: orbit-spin 46s linear infinite;
+  transform-origin: center;
+}
+.formula li + li::before { animation: plus-pulse 3.8s ease-in-out infinite; }
+.formula li:nth-child(3)::before { animation-delay: -1.5s; }
+.cell-svg .sym { animation: sym-pulse 5.4s ease-in-out infinite; }
+.tile--place .sym,
+.swatch--place .sym { animation-delay: -1.7s; }
+.tile--purpose .sym,
+.swatch--purpose .sym { animation-delay: -3.2s; }
 
 .kicker {
   margin: 0 0 0.9rem;
@@ -1028,6 +1055,56 @@ body[data-page="connect"] { --accent: var(--navy); }
   .footer-grid { grid-template-columns: 1.15fr 0.8fr 1.2fr; gap: 2rem; }
 }
 
+/* Element-page motion ---------------------------------------------------- */
+
+.mover {
+  display: block;
+  width: min(100%, 11rem);
+  height: auto;
+  margin-top: 1.4rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+.mover--place,
+.mover--purpose { width: min(100%, 9.5rem); }
+.mover__spin {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: orbit-spin 18s linear infinite;
+}
+.mover--purpose .mover__spin {
+  animation-duration: 12s;
+  transform-origin: 50% 61.4%;
+}
+.mover--people .mover__links {
+  stroke-dasharray: 5 8;
+  animation: link-dash 8s linear infinite;
+}
+.mover--people .node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pulse 2.8s ease-in-out infinite;
+}
+.mover--people .node:nth-child(2) { animation-delay: -0.45s; }
+.mover--people .node:nth-child(3) { animation-delay: -0.9s; }
+.mover--people .node:nth-child(4) { animation-delay: -1.35s; }
+.mover--people .node:nth-child(5) { animation-delay: -1.8s; }
+.mover--people .node:nth-child(6) { animation-delay: -2.2s; }
+.mover--people .node:nth-child(7) { animation-delay: -0.2s; }
+.rise { animation: rise 4.6s ease-in infinite; }
+.rise--2 { animation-delay: -1.5s; }
+.rise--3 { animation-delay: -3s; }
+@keyframes link-dash { to { stroke-dashoffset: -78; } }
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.84); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes rise {
+  0% { transform: translateY(14px); opacity: 0; }
+  28% { opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *,
@@ -1038,7 +1115,12 @@ body[data-page="connect"] { --accent: var(--navy); }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .tile__lift { animation: none !important; }
+  .tile__lift,
+  .spark,
+  .formula li::before,
+  .cell-svg .sym,
+  .mover,
+  .mover * { animation: none !important; }
   .tile:hover,
   .tile:focus-visible,
   .tile:active,
