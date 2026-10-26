@@ -1536,3 +1536,20 @@ html.can-preview .work__item:focus-within .frame__view::after { opacity: 0; }
   .hero__offer-card,
   .hero__offer-card:hover { transform: none !important; transition: none !important; }
 }
+
+/* v5 homepage: Tomas-first */
+.hero--tomas .hero__title { font-size: clamp(2.2rem, 3.6vw, 3.7rem); }
+.hero__freeline { font-size: 1.15rem; line-height: 1.5; margin: 6px 0 4px; max-width: 34em; }
+.review-slot { border-style: dashed; display: flex; align-items: center; }
+.follow__links { display: flex; gap: 12px; flex-wrap: wrap; }
+.faq-line { margin-top: 24px; opacity: .9; }
+@media (max-width: 1080px) { .hero__lead > .hero__freeline { grid-area: sell; } }
+.hero__character { position: relative; width: 132px; height: 132px; margin: 4px 0 14px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #22d3ee, #a78bfa 55%, #f472b6); }
+.hero__character-fallback, .hero__character img { position: absolute; inset: 3px; border-radius: 50%; }
+.hero__character-fallback { display: grid; place-items: center; background: #0b1022; font-size: 3.2rem; font-weight: 700; line-height: 1; color: #a78bfa; }
+.hero__character img { width: calc(100% - 6px); height: calc(100% - 6px); object-fit: cover; background: #0b1022; }
+@media (max-width: 1080px) {
+  .hero__layout { grid-template-areas: "eyebrow" "character" "title" "sell" "actions" "offer" "sub"; }
+  .hero__lead > .hero__character { grid-area: character; margin: 0; }
+}
+@media (max-width: 700px) { .hero__character { width: 104px; height: 104px; } }
