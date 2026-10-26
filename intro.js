@@ -29,7 +29,6 @@
   const cl = (v, a = 0, b = 1) => (v < a ? a : v > b ? b : v);
 
   const T = {
-    grid: [0, 700],
     count: [0, 2100],
     letters: [300, 2150],
     tag: [2050, 2650],
@@ -56,7 +55,6 @@
   let handed = false;
   let done = true;
   let restoreFocus = null;
-  const now = () => tnow;
 
   function syncStrips() {
     const n = window.innerWidth < 600 ? 6 : 10;
@@ -133,39 +131,6 @@
     }
   }
 
-  function grid(p) {
-    if (p <= 0) return;
-    const g = 56;
-    const fade = 1 - cl((now() - T.flip[0]) / 500);
-    const a = 0.16 * Math.min(1, p * 2) * fade;
-    ctx.strokeStyle = `rgba(34,211,238,${a})`;
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    for (let x = (W / 2) % g; x < W; x += g) {
-      const len = H * ease(cl(p * 1.4 - (Math.abs(x - W / 2) / W)));
-      ctx.moveTo(x, H / 2 - len / 2);
-      ctx.lineTo(x, H / 2 + len / 2);
-    }
-    for (let y = (H / 2) % g; y < H; y += g) {
-      const len = W * ease(cl(p * 1.4 - (Math.abs(y - H / 2) / H)));
-      ctx.moveTo(W / 2 - len / 2, y);
-      ctx.lineTo(W / 2 + len / 2, y);
-    }
-    ctx.stroke();
-    const base = lrects[logoStart];
-    if (base) {
-      const by = base.bottom + 2;
-      const bp = ease(cl(p * 1.2));
-      ctx.strokeStyle = `rgba(167,139,250,${0.6 * a / 0.16})`;
-      ctx.setLineDash([6, 6]);
-      ctx.beginPath();
-      ctx.moveTo(W / 2 - W * 0.4 * bp, by);
-      ctx.lineTo(W / 2 + W * 0.4 * bp, by);
-      ctx.stroke();
-      ctx.setLineDash([]);
-    }
-  }
-
   function placeMark(fp) {
     if (!landMark) return;
     landMark.style.opacity = String(fp);
@@ -178,7 +143,6 @@
     const t = tnow;
     const dt = 1 / 60;
     ctx.clearRect(0, 0, W, H);
-    grid(cl((t - T.grid[0]) / (T.grid[1] - T.grid[0])));
     num.textContent = String(Math.round(100 * eio(cl(t / T.count[1])))).padStart(3, '0');
 
     letters.forEach((span, i) => {
