@@ -20,7 +20,7 @@ Check a phone width in the browser's device toolbar (about 390px wide). The menu
 
 | Page | File | What it is for |
 | --- | --- | --- |
-| Home | `index.html` | Price, phone and Contact us in the first screen, four steps, current work, example designs, prices, and the story at the bottom |
+| Home | `index.html` | Price, phone and Contact us in the first screen, then the story under the business marquee, then what you get, four steps, current work, example designs, and prices |
 | Services | `services.html` | Website design and build, and optional hosting |
 | Work | `work.html` | Perfect Jobs & Adventures (live site Tomas built), Lux-Lashes, Innovo, Ember & Oat, Ironbark Electrical |
 | Pricing | `pricing.html` | Two paid plans and a comparison table |
@@ -63,7 +63,7 @@ Each item is something a small web-business site benefits from. Take the ones yo
 
 11. **Relative links and `.nojekyll`.** Links between pages are relative, so the site works in a local folder and in a GitHub project site (which is served from `/buildit-nick-version/`, not the domain root). `.nojekyll` tells GitHub Pages to serve the files as they are, instead of running Jekyll.
 
-12. **Why I'm doing this.** `story.html` is a first-person page, linked from the home section at the bottom, from About, and from its own nav tab. The draft is present tense: not long ago I was making choices I'm not proud of, and I hurt people. I'm changing that, right now. This business is how I'm doing it, one honest job at a time. The story page values are honesty, owning it, and showing up. Public pages do not say the copy is a placeholder. Ideas from Dad is the only place that asks Tomas to edit it into his own words. The home headline no longer says "We build it, host it and keep it running", because that promised hosting on every job. The Open Graph image still contains that line, so its alt text still describes the image.
+12. **Why I'm doing this.** `story.html` is a first-person page, linked from the home story directly under the business marquee (above What you get), from About, and from its own nav tab. The draft is present tense: not long ago I was making choices I'm not proud of, and I hurt people. I'm changing that, right now. This business is how I'm doing it, one honest job at a time. The story page values are honesty, owning it, and showing up. Public pages do not say the copy is a placeholder. Ideas from Dad is the only place that asks Tomas to edit it into his own words. The home headline no longer says "We build it, host it and keep it running", because that promised hosting on every job. The Open Graph image still contains that line, so its alt text still describes the image.
 
 13. **Removed offers.** The two free offers are off the public site. `offers.html` is a noindex redirect to Pricing. It is not in the menu or the sitemap.
 
