@@ -1,25 +1,7 @@
-# BuildIt website
+# BuildIT
 
-Static site: plain HTML, CSS and vanilla JavaScript. No build step.
+The website of BuildIT, Tomas's web studio on Sydney's Northern Beaches: https://buildit-websites.github.io/
 
-## Run locally
+Static HTML, CSS and JS, with no build step. GitHub Pages serves the `fix/qa-round-1` branch.
 
-```sh
-python3 -m http.server 8080
-```
-
-Then open http://localhost:8080
-
-## Files
-
-- `index.html`: the home page
-- `styles.css`: all styles
-- `main.js`: site details (name, email), mobile nav, scroll reveal, card tilt, cursor trail
-- `404.html`: page shown for missing URLs
-- `favicon.svg`, `robots.txt`
-- `netlify.toml`: publishes the repo root with basic security headers
-
-## Changing the business name or email
-
-Edit the `SITE` object at the top of `main.js`. Also update the copies in the `<head>` of `index.html`
-(title, meta description, Open Graph, JSON-LD) and the email link in `404.html`, because those are read without JavaScript.
+**Start here: [OWN-IT.md](OWN-IT.md)** covers what every file is, how to edit, and how to publish live.
