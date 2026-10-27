@@ -26,20 +26,7 @@
     <div class="container shell">
       <div class="bar">
         <a class="brand" href="index.html" aria-label="Khemistry, home">
-        <svg class="brand__mark" viewBox="0 0 168 52" aria-hidden="true" focusable="false">
-          <rect x="0" y="0" width="52" height="52" rx="3" fill="#0C3E72"/>
-          <rect x="58" y="0" width="52" height="52" rx="3" fill="#14C8D4"/>
-          <rect x="116" y="0" width="52" height="52" rx="3" fill="#2A62FF"/>
-          <text class="n" x="5" y="11" font-size="7" fill="#FFF6E4" fill-opacity="0.8">01</text>
-          <text class="s" x="26" y="31" text-anchor="middle" font-size="16" fill="#5EFBFF">Pp</text>
-          <text class="e" x="26" y="45" text-anchor="middle" font-size="7" fill="#FFF6E4">People</text>
-          <text class="n" x="63" y="11" font-size="7" fill="#0C3E72" fill-opacity="0.72">02</text>
-          <text class="s" x="84" y="31" text-anchor="middle" font-size="16" fill="#0C3E72">Pl</text>
-          <text class="e" x="84" y="45" text-anchor="middle" font-size="7" fill="#0C3E72">Place</text>
-          <text class="n" x="121" y="11" font-size="7" fill="#FFF6E4" fill-opacity="0.8">03</text>
-          <text class="s" x="142" y="31" text-anchor="middle" font-size="16" fill="#FFE56A">Pu</text>
-          <text class="e" x="142" y="45" text-anchor="middle" font-size="7" fill="#FFF6E4">Purpose</text>
-        </svg>
+          <img class="brand__mark" src="assets/logo.svg" alt="" width="248" height="158">
           <span class="brand__name">Khemistry</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -67,11 +54,35 @@
           <h1>People</h1>
           <hr class="rule">
           <p class="lede">Right skills, role, team, fit, expectations and aspirations.</p>
+          <svg class="mover mover--people" viewBox="0 0 200 112" aria-hidden="true" focusable="false">
+            <g class="mover__links" fill="none" stroke="#0c3e72" stroke-width="1.7" stroke-linecap="round">
+              <path d="M28 64 L64 30 L118 48 L164 26"/>
+              <path d="M64 30 L72 82"/>
+              <path d="M28 64 L72 82 L118 48"/>
+              <path d="M118 48 L156 78"/>
+              <path d="M72 82 L128 92 L156 78"/>
+              <path d="M164 26 L156 78"/>
+            </g>
+            <g>
+              <circle class="node" cx="28" cy="64" r="5" fill="#0c3e72"/>
+              <circle class="node" cx="64" cy="30" r="4.2" fill="#0c3e72"/>
+              <circle class="node" cx="72" cy="82" r="4.5" fill="#0c3e72"/>
+              <circle class="node" cx="118" cy="48" r="6.2" fill="#12b6c8"/>
+              <circle class="node" cx="164" cy="26" r="4.4" fill="#12b6c8"/>
+              <circle class="node" cx="156" cy="78" r="5" fill="#12b6c8"/>
+              <circle class="node" cx="128" cy="92" r="3.6" fill="#0c3e72"/>
+            </g>
+          </svg>
         </div>
         <div class="swatch swatch--people" aria-hidden="true">
-          <p class="swatch__num">01</p>
-          <p class="swatch__symbol">Pp</p>
-          <p class="swatch__name">People</p>
+          <svg class="cell-svg" viewBox="0 0 200 200" focusable="false">
+            <rect x="3" y="3" width="194" height="194" rx="5" fill="#0E4A86" stroke="#FFF6E4" stroke-width="3"/>
+            <text class="num" x="14" y="28" font-size="15">01</text>
+            <text class="sym" x="100" y="108" text-anchor="middle" font-size="78">Pp</text>
+            <text class="nm" x="100" y="146" text-anchor="middle" font-size="22">People</text>
+            <line class="mass-rule" x1="36" y1="160" x2="164" y2="160" stroke-width="1.5"/>
+            <text class="mass" x="100" y="180" text-anchor="middle" font-size="12">skills · role · fit</text>
+          </svg>
         </div>
         <figure class="banner">
           <img src="assets/people.webp" width="1200" height="676" alt="Four friends laughing together outdoors">

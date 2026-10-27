@@ -26,20 +26,7 @@
     <div class="container shell">
       <div class="bar">
         <a class="brand" href="index.html" aria-label="Khemistry, home">
-        <svg class="brand__mark" viewBox="0 0 168 52" aria-hidden="true" focusable="false">
-          <rect x="0" y="0" width="52" height="52" rx="3" fill="#0C3E72"/>
-          <rect x="58" y="0" width="52" height="52" rx="3" fill="#14C8D4"/>
-          <rect x="116" y="0" width="52" height="52" rx="3" fill="#2A62FF"/>
-          <text class="n" x="5" y="11" font-size="7" fill="#FFF6E4" fill-opacity="0.8">01</text>
-          <text class="s" x="26" y="31" text-anchor="middle" font-size="16" fill="#5EFBFF">Pp</text>
-          <text class="e" x="26" y="45" text-anchor="middle" font-size="7" fill="#FFF6E4">People</text>
-          <text class="n" x="63" y="11" font-size="7" fill="#0C3E72" fill-opacity="0.72">02</text>
-          <text class="s" x="84" y="31" text-anchor="middle" font-size="16" fill="#0C3E72">Pl</text>
-          <text class="e" x="84" y="45" text-anchor="middle" font-size="7" fill="#0C3E72">Place</text>
-          <text class="n" x="121" y="11" font-size="7" fill="#FFF6E4" fill-opacity="0.8">03</text>
-          <text class="s" x="142" y="31" text-anchor="middle" font-size="16" fill="#FFE56A">Pu</text>
-          <text class="e" x="142" y="45" text-anchor="middle" font-size="7" fill="#FFF6E4">Purpose</text>
-        </svg>
+          <img class="brand__mark" src="assets/logo.svg" alt="" width="248" height="158">
           <span class="brand__name">Khemistry</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -67,11 +54,28 @@
           <h1>Place</h1>
           <hr class="rule">
           <p class="lede">The right place combines leadership, culture, challenge and opportunity. It’s where people thrive.</p>
+          <svg class="mover mover--place" viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+            <g fill="none" stroke-width="1.7">
+              <ellipse cx="80" cy="80" rx="62" ry="22" transform="rotate(-26 80 80)" stroke="#14c8d4"/>
+              <ellipse cx="80" cy="80" rx="62" ry="22" transform="rotate(34 80 80)" stroke="#0b6e78"/>
+              <ellipse cx="80" cy="80" rx="62" ry="22" transform="rotate(94 80 80)" stroke="#0c3e72" opacity="0.75"/>
+            </g>
+            <circle cx="80" cy="80" r="5" fill="#0c3e72"/>
+            <g class="mover__spin">
+              <circle cx="142" cy="80" r="4.2" fill="#14c8d4"/>
+              <circle cx="34" cy="108" r="3" fill="#0b6e78"/>
+            </g>
+          </svg>
         </div>
         <div class="swatch swatch--place" aria-hidden="true">
-          <p class="swatch__num">02</p>
-          <p class="swatch__symbol">Pl</p>
-          <p class="swatch__name">Place</p>
+          <svg class="cell-svg" viewBox="0 0 200 200" focusable="false">
+            <rect x="3" y="3" width="194" height="194" rx="5" fill="#14C8D4" stroke="#FFF6E4" stroke-width="3"/>
+            <text class="num" x="14" y="28" font-size="15">02</text>
+            <text class="sym" x="100" y="108" text-anchor="middle" font-size="78">Pl</text>
+            <text class="nm" x="100" y="146" text-anchor="middle" font-size="22">Place</text>
+            <line class="mass-rule" x1="36" y1="160" x2="164" y2="160" stroke-width="1.5"/>
+            <text class="mass" x="100" y="180" text-anchor="middle" font-size="12">where people thrive</text>
+          </svg>
         </div>
         <figure class="banner">
           <img src="assets/place.webp" width="1400" height="934" alt="Melbourne skyline across the Yarra River at dusk">
