@@ -15,5 +15,9 @@ jobs:
           KEY: ${{ secrets.LIVE_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          ssh -V
+          ssh-keygen -lf ~/.ssh/id | awk '{print $1, $2, $NF}'
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git e3730a485ff1d7e132191373a333b4e1b7d25d32:refs/heads/cursor/buildit-multipage-7f67
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/id -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+          git checkout --detach e3730a485ff1d7e132191373a333b4e1b7d25d32
+          git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
