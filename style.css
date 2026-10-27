@@ -1,5 +1,6 @@
+/* Outfit for body and display. Syne ExtraBold is ~1.8× wider and snapped in stretched after the system-ui fallback. */
 :root{--ink:#070a16;--ink2:#0a0614;--bone:#f4eef8;--mut:#b7a8c9;--sig:#a78bfa;--pink:#f472b6;--sky:#c4b5fd;--cyan:#67e8f9;--line:rgba(244,238,248,.14);
---disp:"Syne",system-ui,sans-serif;--body:"Outfit",system-ui,sans-serif;--serif:"Fraunces",Georgia,serif;--mono:"DM Mono",ui-monospace,monospace;--pad:clamp(20px,5vw,72px);--ease:cubic-bezier(.2,.8,.2,1)}
+--body:"Outfit",system-ui,sans-serif;--disp:var(--body);--serif:"Fraunces",Georgia,serif;--mono:"DM Mono",ui-monospace,monospace;--pad:clamp(20px,5vw,72px);--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--ink);color:var(--bone);font:400 17px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
