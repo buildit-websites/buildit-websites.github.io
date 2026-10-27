@@ -415,16 +415,18 @@ main,.ftr{position:relative;z-index:1}
 .stamp{border-color:var(--pink);color:var(--pink)}
 
 /* hero: offer visible without a locked full viewport */
-.hero{min-height:0;display:block;overflow:hidden;padding-top:108px;padding-bottom:clamp(28px,5vh,52px)}
+.hero{min-height:0;display:block;overflow:hidden;padding-top:88px;padding-bottom:20px}
 .hero-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(220px,.82fr);gap:clamp(18px,3vw,40px);align-items:center}
 .hero-copy{min-width:0}
-.hero .buddy-inline{height:72px;margin-bottom:8px}
-.hero .hero-h{font-size:clamp(42px,6.2vw,92px);margin:0}
-.hero-hook{font:500 italic clamp(22px,2.4vw,34px)/1.15 var(--serif);color:var(--bone);margin:14px 0 0}
-.spots-pill{display:inline-flex;align-items:center;gap:8px;margin:16px 0 0;padding:8px 14px 8px 10px;border-radius:999px;border:1px solid rgba(244,114,182,.55);background:rgba(244,114,182,.1);font:500 15px/1 var(--body);color:var(--bone)}
+.hero .buddy-inline{height:56px;margin-bottom:6px}
+.hero .hi{font-size:clamp(22px,2.4vw,34px);margin:0 0 6px}
+.hero .hero-h{font-size:clamp(40px,5.2vw,72px);margin:0}
+.hero-hook{font:500 italic clamp(20px,2vw,28px)/1.15 var(--serif);color:var(--bone);margin:8px 0 0}
+.spots-pill{display:inline-flex;align-items:center;gap:8px;margin:12px 0 0;padding:7px 12px 7px 8px;border-radius:999px;border:1px solid rgba(244,114,182,.55);background:rgba(244,114,182,.1);font:500 15px/1 var(--body);color:var(--bone)}
 .spots-pill b{font:800 18px/1 var(--disp);color:#0a0614;background:var(--pink);border-radius:999px;padding:5px 8px}
-.hero .hero-foot{margin-top:18px}
-.price-line{margin-top:14px;color:var(--mut);font-size:15px;max-width:560px}
+.hero .hero-foot{margin-top:12px}
+.hero .hero-sub{font-size:16px}
+.price-line{margin-top:10px;color:var(--mut);font-size:15px;max-width:560px}
 .price-line b{color:var(--bone);font-weight:600}
 .hero-stage{display:grid;grid-template-columns:minmax(0,1fr) 32%;align-items:end;margin:0}
 .stage-desk,.stage-phone{border-radius:16px;box-shadow:0 28px 60px -28px rgba(0,0,0,.8),0 0 0 1px var(--line)}
@@ -491,21 +493,21 @@ main,.ftr{position:relative;z-index:1}
   .js .browser img{height:auto;max-height:none;min-height:0}
   .js .phone{position:relative;height:auto;width:100%;bottom:auto;right:auto}
   .js .proof{height:var(--pinh,400vh);padding-top:0;padding-bottom:0}
-  .js .proof-pin{position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;padding:72px 0 16px;box-sizing:border-box}
-  .js .proof-head{flex:none}
-  .js .proof .buddy-inline{height:52px;margin-bottom:6px}
-  .js .proof .sec-h{margin-bottom:8px;font-size:clamp(30px,3.3vw,52px)}
-  .js .proof-lede{margin:0 0 6px;font-size:clamp(15px,1.25vw,18px);line-height:1.35}
-  .js .proof-hint{margin-bottom:0}
-  .js .reel{flex:1 1 auto;min-height:0;display:flex;overflow:hidden;padding:10px var(--pad) 6px}
-  .js .track{height:100%;align-items:stretch}
-  .js .proof .card{width:min(42vw,540px);height:100%;display:flex;flex-direction:column}
-  .js .proof .card-link{min-height:0;flex:1}
-  .js .proof .shots{flex:1 1 auto;min-height:0;height:auto;max-height:none;grid-template-columns:minmax(0,1fr) auto}
-  .js .proof .browser{height:78%;align-self:end;display:flex;flex-direction:column;min-height:0}
-  .js .proof .browser img{flex:1 1 auto;height:auto;min-height:0;width:100%;aspect-ratio:auto;object-fit:cover;object-position:top}
-  .js .proof .phone{height:100%;width:auto;max-width:none;aspect-ratio:390/844;object-fit:cover;object-position:top;justify-self:end}
-  .js .proof .meta{flex:none;margin-top:12px}
+  .js .proof-pin{position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;padding:68px 0 14px;box-sizing:border-box}
+  .js .proof-head{flex:0 0 auto}
+  .js .proof .buddy-inline{height:48px;margin-bottom:4px}
+  .js .proof .sec-h{margin:0 0 6px;font-size:clamp(28px,3vw,48px)}
+  .js .proof-lede{margin:0 0 4px;font-size:16px;line-height:1.35}
+  .js .proof-hint{margin:0}
+  .js .proof .reel{flex:1 1 auto;min-height:0;display:flex;overflow:hidden;padding:8px var(--pad) 4px}
+  .js .proof .track{height:100%;max-height:100%;min-height:0;align-items:stretch}
+  .js .proof .card{width:min(42vw,520px);height:100%;max-height:100%;min-height:0;display:flex;flex-direction:column}
+  .js .proof .card-link{flex:1 1 auto;min-height:0;height:100%;display:grid;grid-template-rows:minmax(0,1fr) auto;align-content:stretch}
+  .js .proof .meta{margin-top:10px}
+  .js .proof .shots{position:relative;display:block;min-height:0;height:100%;overflow:hidden}
+  .js .proof .browser{position:absolute;left:0;bottom:0;width:74%;height:78%;margin:0;display:flex;flex-direction:column}
+  .js .proof .browser img{flex:1 1 auto;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:top}
+  .js .proof .phone{position:absolute;right:0;bottom:0;top:auto;height:92%;width:auto;max-width:none;aspect-ratio:390/844;object-fit:cover;object-position:top}
 }
 @media(max-width:899px){
   .card{width:min(88vw,560px)}

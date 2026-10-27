@@ -53,7 +53,7 @@ if(!RM && 'IntersectionObserver' in window){
   const nodes=[...$$('.reveal'),...$$('.psec'),...$$('.cta-band')].filter(el=>el&&!seen.has(el)&&seen.add(el));
   const io=new IntersectionObserver(entries=>{
     entries.forEach(en=>{if(!en.isIntersecting)return;en.target.classList.add('in');en.target.classList.remove('wait');io.unobserve(en.target)});
-  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  },{threshold:.01,rootMargin:'0px 0px -4% 0px'});
   nodes.forEach(el=>{
     const r=el.getBoundingClientRect();
     if(r.top<innerHeight*.92 && r.bottom>0) el.classList.add('in');
