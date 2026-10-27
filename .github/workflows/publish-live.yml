@@ -14,10 +14,13 @@ jobs:
         env:
           KEY: ${{ secrets.LIVE_DEPLOY_KEY }}
         run: |
-          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
-          ssh -V
-          ssh-keygen -lf ~/.ssh/id | awk '{print $1, $2, $NF}'
+          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 700 ~/.ssh && chmod 600 ~/.ssh/id
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          export GIT_SSH_COMMAND="ssh -i ~/.ssh/id -o IdentitiesOnly=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+          echo "AUTH_PROBE"
+          set +e
+          ssh -vvv -T -o IdentitiesOnly=yes -i "$HOME/.ssh/id" git@github.com > /tmp/sshdbg 2>&1
+          echo "AUTH_EXIT:$?"
+          set -e
+          grep -E 'Offering public key|Server accepts key|Authentication succeeded|Authentications that can continue|Permission denied|identity file|Hi |ERROR|read only' /tmp/sshdbg | head -40
           git checkout --detach e3730a485ff1d7e132191373a333b4e1b7d25d32
-          git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
+          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id -o IdentitiesOnly=yes" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
