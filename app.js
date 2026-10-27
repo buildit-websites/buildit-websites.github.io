@@ -1,5 +1,5 @@
 (()=>{
-/* BuildIT site script: intro, scroll effects, character, menu. You rarely need to edit this. */
+/* BuildIT site script: intro, scroll effects, menu. You rarely need to edit this. */
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const root=document.documentElement;
@@ -69,11 +69,6 @@ const mb=$('.menu-btn'),nav=$('#nav');if(mb&&nav){mb.addEventListener('click',()
   addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-open')){mb.click();mb.focus()}})}
 /* ---------- contact form plan from ?plan= ---------- */
 const cf=$('[data-contact-form]');if(cf){const pi=cf.querySelector('[name="plan"]'),w=new URLSearchParams(location.search).get('plan');if(pi&&['design','design-hosting','unsure'].includes(w))pi.value=w}
-/* ---------- buddy ---------- */
-const buddy=$('#buddy'),bsecs=$$('[data-buddy]');
-function buddyState(){if(!buddy)return;let st='hero';const m=innerHeight*.5;for(const s of bsecs){const r=s.getBoundingClientRect();if(r.top<m&&r.bottom>m)st=s.dataset.buddy}
-  if(scrollY+innerHeight>=document.documentElement.scrollHeight-4)st='start';if(buddy.dataset.state!==st)buddy.dataset.state=st}
-addEventListener('scroll',()=>requestAnimationFrame(buddyState),{passive:true});buddyState();
 /* ---------- cursor + magnetic ---------- */
 if(!RM&&matchMedia('(pointer:fine)').matches){const c=$('.cursor');let x=0,y=0,cx=0,cy=0;
   addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.classList.add('live')});
