@@ -418,7 +418,6 @@ main,.ftr{position:relative;z-index:1}
 .hero{min-height:0;display:block;overflow:hidden;padding-top:88px;padding-bottom:20px}
 .hero-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(220px,.82fr);gap:clamp(18px,3vw,40px);align-items:center}
 .hero-copy{min-width:0}
-.hero .buddy-inline{height:56px;margin-bottom:6px}
 .hero .hi{font-size:clamp(22px,2.4vw,34px);margin:0 0 6px}
 .hero .hero-h{font-size:clamp(40px,5.2vw,72px);margin:0}
 .hero-hook{font:500 italic clamp(20px,2vw,28px)/1.15 var(--serif);color:var(--bone);margin:8px 0 0}
@@ -495,7 +494,6 @@ main,.ftr{position:relative;z-index:1}
   .js .proof{height:var(--pinh,400vh);padding-top:0;padding-bottom:0}
   .js .proof-pin{position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;padding:68px 0 14px;box-sizing:border-box}
   .js .proof-head{flex:0 0 auto}
-  .js .proof .buddy-inline{height:48px;margin-bottom:4px}
   .js .proof .sec-h{margin:0 0 6px;font-size:clamp(28px,3vw,48px)}
   .js .proof-lede{margin:0 0 4px;font-size:16px;line-height:1.35}
   .js .proof-hint{margin:0}
@@ -512,6 +510,24 @@ main,.ftr{position:relative;z-index:1}
 @media(max-width:899px){
   .card{width:min(88vw,560px)}
 }
+
+/* section opener in place of the portrait */
+.hero .hi::before,
+.phero > .label::before,
+.offer > .label::before,
+.values > .label::before,
+.story-brief > .label::before,
+.packages > .label::before,
+.proof-head > .sec-h::before,
+.start > .start-h::before,
+.cta-band > h2::before,
+.psec > .label:first-child::before,
+.psec > .offer-bar:first-child::before,
+.psec > h2:first-child::before{
+  content:"";display:block;width:52px;height:3px;border-radius:99px;margin:0 0 16px;
+  background:linear-gradient(90deg,var(--sig),var(--pink));
+}
+.proof-head > .sec-h::before,.start > .start-h::before,.cta-band > h2::before{margin-bottom:18px}
 
 /* reveal on scroll — hidden only after JS marks .wait */
 .reveal.wait{opacity:0;transform:translateY(18px)}
