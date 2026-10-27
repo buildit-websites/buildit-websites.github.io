@@ -47,6 +47,19 @@ function onScroll(){const vh=innerHeight;
 let ticking=false;addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{onScroll();ticking=false})}},{passive:true});
 addEventListener('resize',()=>{sizeReel();onScroll()});
 addEventListener('load',()=>{sizeReel();onScroll()});sizeReel();onScroll();
+/* reveal: lift into place. Content stays visible if JS or motion is off. */
+if(!RM && 'IntersectionObserver' in window){
+  const seen=new Set();
+  const nodes=[...$$('.reveal'),...$$('.psec'),...$$('.cta-band')].filter(el=>el&&!seen.has(el)&&seen.add(el));
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{if(!en.isIntersecting)return;en.target.classList.add('in');en.target.classList.remove('wait');io.unobserve(en.target)});
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  nodes.forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<innerHeight*.92 && r.bottom>0) el.classList.add('in');
+    else{el.classList.add('wait');io.observe(el)}
+  });
+}
 /* keyboard focus inside pinned reel: scroll page to reveal card */
 track.addEventListener('focusin',e=>{if(!pinMQ.matches)return;const c=e.target.closest('.card');const i=[...track.children].indexOf(c);const n=track.children.length-1;
   const r=proof.getBoundingClientRect();const top=scrollY+r.top+(r.height-innerHeight)*(i/n);window.scrollTo({top,behavior:'instant'})});
