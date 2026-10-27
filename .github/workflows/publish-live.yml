@@ -13,14 +13,19 @@ jobs:
       - name: Send this version live
         env:
           KEY: ${{ secrets.LIVE_DEPLOY_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 700 ~/.ssh && chmod 600 ~/.ssh/id
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo "AUTH_PROBE"
-          set +e
-          ssh -vvv -T -o IdentitiesOnly=yes -i "$HOME/.ssh/id" git@github.com > /tmp/sshdbg 2>&1
-          echo "AUTH_EXIT:$?"
-          set -e
-          grep -E 'Offering public key|Server accepts key|Authentication succeeded|Authentications that can continue|Permission denied|identity file|Hi |ERROR|read only' /tmp/sshdbg | head -40
           git checkout --detach e3730a485ff1d7e132191373a333b4e1b7d25d32
-          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id -o IdentitiesOnly=yes" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
+          gh api repos/finlaysonnick74-source/buildit-nick-version --jq .full_name || echo "actions token cannot see target repo"
+          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ok=0
+          for i in 1 2 3 4 5 6; do
+            echo "push attempt $i"
+            if GIT_SSH_COMMAND="ssh -i ~/.ssh/id" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67; then
+              ok=1
+              break
+            fi
+            sleep 15
+          done
+          test "$ok" = 1
