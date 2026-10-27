@@ -1,7 +1,5 @@
 name: Publish to buildit.net.au
 on:
-  push:
-    branches: [cursor/publish-buildit-v2-netau-1138]
   workflow_dispatch:
 jobs:
   publish:
@@ -15,10 +13,6 @@ jobs:
           KEY: ${{ secrets.LIVE_DEPLOY_KEY }}
         run: |
           git checkout --detach e3730a485ff1d7e132191373a333b4e1b7d25d32
-          mkdir -p ~/.ssh && chmod 700 ~/.ssh
-          echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
-          echo "PUBLIC_KEY_FOLLOWS"
-          ssh-keygen -y -f ~/.ssh/id
-          echo "PUBLIC_KEY_END"
+          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/id -o IdentitiesOnly=yes" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
