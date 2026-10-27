@@ -13,19 +13,12 @@ jobs:
       - name: Send this version live
         env:
           KEY: ${{ secrets.LIVE_DEPLOY_KEY }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git checkout --detach e3730a485ff1d7e132191373a333b4e1b7d25d32
-          gh api repos/finlaysonnick74-source/buildit-nick-version --jq .full_name || echo "actions token cannot see target repo"
-          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          echo "PUBLIC_KEY_FOLLOWS"
+          ssh-keygen -y -f ~/.ssh/id
+          echo "PUBLIC_KEY_END"
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ok=0
-          for i in 1 2 3 4 5 6; do
-            echo "push attempt $i"
-            if GIT_SSH_COMMAND="ssh -i ~/.ssh/id" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67; then
-              ok=1
-              break
-            fi
-            sleep 15
-          done
-          test "$ok" = 1
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id -o IdentitiesOnly=yes" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
